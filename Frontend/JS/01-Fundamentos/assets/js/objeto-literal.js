@@ -7,16 +7,16 @@ let personaje = {
         lat: 34.034,
         lng: -118.70
     },
-    trajes: ['Mark I', 'Mark V', 'Hulkbuster'],
-};
+    trajes: ['Mark I', 'Mark V', 'Hulkbuster'], // Esta coma es opcional
+}; // Las llaves se asocian a un objeto literal
 
-console.log( personaje );
-console.log('Nombre: ', personaje.nombre);
-console.log('Nombre: ', personaje['nombre']);
+console.log( personaje ); // El punto y coma significa que termina ahí
+console.log('Nombre: ', personaje.nombre);// Imprime el nombre del personaje
+console.log('Nombre: ', personaje['nombre']); // Imprime el nombre del personaje
 console.log('Edad: ', personaje.edad);
 console.log('coors: ', personaje.coords.lat); // Concatena
-console.log('No. Trajes: ', personaje.trajes.length);
-console.log('Ultimo traje: ', personaje.trajes[personaje.trajes.length-1]); // imprime el ultimo valor de esa parte del arreglo
+console.log('No. Trajes: ', personaje.trajes.length); // Imprime el número de trajes
+console.log('Ultimo traje: ', personaje.trajes[personaje.trajes.length-1]); // imprime el ultimo valor de esa parte del arreglo, es mejor hacer los calulos en el arreglo
 
 
 const x = 'vivo';
@@ -26,7 +26,7 @@ console.log('Vivo ', personaje[x]);
 
 // Mas detalles
 
-delete personaje.edad;
+delete personaje.edad;  // Elimina la propiedad edad
 console.log(personaje);
 
 const entriesPares = Object.entries( personaje ); // convertir el objeto en un arreglo

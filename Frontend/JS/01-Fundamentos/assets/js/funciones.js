@@ -7,16 +7,16 @@ saludar(); // Ejecuta la funcion
 const saludar2 = function (){ // Funcion anonima, medida de seguiridad de que no se puede reescribir
     console.log('Hola Mundo');
 }
-saludar();
+saludar2();
 
 
 function saludar3( nombre ){ // Muy tradicional pero no es lo conveniente
     console.log('Hola Mundo ' + nombre);
 }
-saludar3( 'Fernando' ); // le envio el nombre
+saludar3( 'Fernando' ); // le envio el nombre a la funcion de arriba
 
 
-const saludarFlecha = () =>{ // Función flecha, 
+const saludarFlecha = () =>{ // Función flecha,
     console.log('Hola flecha');
 
 }
