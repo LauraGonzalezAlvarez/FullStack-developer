@@ -1,4 +1,4 @@
-//alert('Hola desde app.js');
+//alert('Hola desde juego.js');
 
 // console.log( console.log('Hola mundo'));
 
