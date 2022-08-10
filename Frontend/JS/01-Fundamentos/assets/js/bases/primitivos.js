@@ -1,10 +1,10 @@
-let nombre = 'peter Parker';
-console.log(nombre);
+let nombre1 = 'peter Parker';
+console.log(nombre1);
 
 nombre = 'Ben Parker';
 console.log(nombre);
 
-nombre = "Tía May";
+//nombre = "Tía May";
 nombre= 'Tía May';// Se recomienda utilizar esta porque es mas liviano
 
 console.log(typeof nombre); // saber el tipo de dato
@@ -29,7 +29,6 @@ let soyNull = null;
 console.groupCollapsed(typeof soyNull);
 
 let symbol1=  Symbol('a');
-let symbol2 = Symbol('a');
 
 console.log(typeof symbol1);
 

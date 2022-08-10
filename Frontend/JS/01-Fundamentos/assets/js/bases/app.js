@@ -1,6 +1,6 @@
 //alert('Hola desde app.js');
 
-console.log( console.log('Hola mundo'));
+// console.log( console.log('Hola mundo'));
 
 let a = 10,
     b = 20,
@@ -8,7 +8,7 @@ let a = 10,
     d = 'Spiderman',
     x = a + b;
 
-const saludo = c + d;
+//const saludo = c + d;
 
 console.log('%c Mis variables', 'color:blue; font-weight: bold');
 console.log({a});
