@@ -1,4 +1,4 @@
-# Juego BlackJack
+### Juego BlackJack
 
 ```
 Consiste en:
