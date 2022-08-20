@@ -1,8 +1,8 @@
 const arr = new Array(10);
 console.log(arr);
 
-const arr1 = [];
-console.log(arr1);
+const arr2 = [];
+console.log(arr2);
 
 
 let videoJuegos = ['Mario 3', 'Megaman'];
