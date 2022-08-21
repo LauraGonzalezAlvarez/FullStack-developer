@@ -9,6 +9,77 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+
+<main>
+    <img src="img/img-sofka.png" alt="Imágen Sofka" class="img">
+    <h2>Utilizar API Math.js </h2>
+    <form action="" class="formulario" id="formulario">
+        <!-- Grupo: Nombres -->
+        <div class="formulario__grupo" id="grupo__nombre">
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Nombres">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error"> Nombre debe estar compuesto por al menos tres palabras
+                y debe empezar en mayuscula.</p>
+        </div>
+
+        <!-- Grupo: Cedula -->
+        <div class="formulario__grupo" id="grupo__cedula">
+            <div class="formulario__grupo-input">
+                <input type="number" class="formulario__input" name="cedula" id="cedula" placeholder="Cedula">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">La cédula debe ser mayor a 1000000000.</p>
+        </div>
+
+
+        <!-- Grupo: Correo Electronico -->
+        <div class="formulario__grupo" id="grupo__correo">
+            <div class="formulario__grupo-input">
+                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Email">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El email debe ser válido. </p>
+        </div>
+
+        <!-- Grupo: Teléfono -->
+        <div class="formulario__grupo" id="grupo__telefono">
+            <div class="formulario__grupo-input">
+                <input type="number" class="formulario__input" name="telefono" id="telefono" placeholder="Telefono">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error"> El teléfono debe iniciar por 3 y debe tener una longitud de 10 dígitos.</p>
+        </div>
+
+
+        <!-- Grupo: Operación -->
+        <div class="formulario__grupo" id="grupo__operacion">
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="operacion" id="operacion" placeholder="Operacion">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+        </div>
+
+        <div class="formulario__mensaje" id="formulario__mensaje">
+            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Incorrecto </p>
+        </div>
+
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="submit" class="formulario__btn">Enviar</button>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+            <h2>Resultado</h2>
+        </div>
+
+
+
+
+
+    </form>
+</main>
+
+
 <script src="js/formulario.js"></script>
 <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
