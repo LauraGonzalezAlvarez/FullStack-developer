@@ -99,12 +99,12 @@ main {
 }
 
 
-.formulario__mensaje,
+.formulario__mensaje-error,
 .formulario__grupo-btn-enviar {
     grid-column: span 2;
 }
 
-.formulario__mensaje {
+.formulario__mensaje-error {
     height: 45px;
     line-height: 45px;
     background: #F66060;
@@ -155,6 +155,14 @@ main {
 }
 
 .formulario__mensaje-exito-activo {
+    display: block;
+}
+
+.formulario__mensaje-error-activo {
+    display: block;
+}
+
+.formulario__mensaje-resultado{
     display: block;
 }
 
