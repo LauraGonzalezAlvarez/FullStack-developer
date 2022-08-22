@@ -1,3 +1,7 @@
+/**
+ * Se crea las validaciones correspondientes a cada campo del formulario
+ * @type {HTMLElement}
+ */
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
@@ -44,6 +48,7 @@ const validarCampoEmail = (input, campo) => {
     } else {
         validarFormularioIncorrecto(input, campo);
     }
+
 }
 
 const validarCampoTelefono = (input, campo) => {
@@ -106,9 +111,21 @@ formulario.addEventListener('submit', (e) => {
         document.getElementById('formulario__mensaje-error').classList.add('formulario__mensaje-activo');
         setTimeout(() => {
             document.getElementById('formulario__mensaje-error').classList.remove('formulario__mensaje-activo');
-        }, 3000);
+        }, 5000);
     }
+
+    if ((campos.cedula == null) ) {
+        validarFormularioIncorrecto(campos.nombre, 'nombre');
+        validarFormularioIncorrecto(campos.cedula, 'cedula');
+        validarFormularioIncorrecto(campos.correo, 'correo');
+        validarFormularioIncorrecto(campos.telefono, 'telefono');
+        validarFormularioIncorrecto(campos.operacion, 'operacion');
+    }
+
 });
+
+
+
 
 
 
