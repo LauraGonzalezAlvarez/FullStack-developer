@@ -8,7 +8,7 @@ Detener la partida
 ```
 
 :heavy_check_mark: Se utiliza la biblioteca de javaScript undercore la función shuffle para mezclar las cartas :black_joker:
--[x] [Biblioteca underscore-js](https://www.geeksforgeeks.org/underscore-js-_-shuffle-function/).
+ [Biblioteca underscore-js](https://www.geeksforgeeks.org/underscore-js-_-shuffle-function/).
 
 	
 
