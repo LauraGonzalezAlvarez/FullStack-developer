@@ -11,6 +11,7 @@ Detener la partida
 >[x] [Biblioteca underscore-js](https://www.geeksforgeeks.org/underscore-js-_-shuffle-function/).
 
 	<sub>Proximamente: Pagina GitHubepages</sub>
+	<sub>This is a subscript text</sub>
 
 ###### *A continuación una imagen del juego*
 >![Diselo del juego](https://user-images.githubusercontent.com/82009638/190538767-02845003-fc2e-42b4-804d-938f59eb1f76.png)
