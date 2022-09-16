@@ -1,4 +1,4 @@
-# Juego de cartas BlackJack
+# Juego de cartas BlackJack :octocat:
 
 ##  Este juego permite:
 ```
