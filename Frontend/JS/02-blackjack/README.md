@@ -9,7 +9,8 @@ Detener la partida
 
 :heavy_check_mark: Se utiliza la biblioteca de javaScript undercore la función shuffle para mezclar las cartas :black_joker:
  [Biblioteca underscore-js](https://www.geeksforgeeks.org/underscore-js-_-shuffle-function/).
-
+:heavy_check_mark: Se utiliza la directiva ["use strict"](https://www.w3schools.com/js/js_strict.asp) para escribir un código más limpio, como evitar que use variables no declaradas.
+:heavy_check_mark: Se utiliza el patron [modulo](https://medium.com/@gloriafercu/el-patr%C3%B3n-m%C3%B3dulo-en-javascript-1cd012a30ad#:~:text=El%20patr%C3%B3n%20m%C3%B3dulo%20consiste%20en%20un%20m%C3%B3dulo%20donde%20se%20encapsular%C3%A1,ser%C3%A1n%20visibles%20dentro%20del%20mismo.) para encapsular la lógica evitar baches de seguridad generar componentes reutilizables y codigo global limpio de variables y funciones
 	
 
 ###### *A continuación una imagen del juego*
