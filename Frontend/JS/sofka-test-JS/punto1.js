@@ -43,7 +43,8 @@ let generarNumeroAleatorio = (cantidad, arr1) => {
     /**
      * Imprime los numeros aleatorios
      */
-    document.write("números aleatorios : " + myArray);
+   // document.write("números aleatorios : " + myArray);
+    console.log({myArray});
 
 }
 /**

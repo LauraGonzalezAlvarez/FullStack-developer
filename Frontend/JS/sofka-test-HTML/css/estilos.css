@@ -10,8 +10,6 @@ body {
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
-
-
 }
 
 
@@ -22,7 +20,6 @@ body {
 
 main {
     width: 400px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,13 +37,7 @@ main {
 }
 
 
-.formulario {
 
-
-    gap: 20px;
-
-
-}
 
 
 .formulario__grupo-input {
@@ -82,7 +73,6 @@ main {
     margin-bottom: 0;
     display: none;
 }
-
 
 
 .formulario__input-error-activo {
@@ -162,7 +152,7 @@ main {
     display: block;
 }
 
-.formulario__mensaje-resultado{
+.formulario__mensaje-resultado {
     display: block;
 }
 

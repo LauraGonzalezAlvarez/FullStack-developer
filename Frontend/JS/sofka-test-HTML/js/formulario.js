@@ -114,18 +114,8 @@ formulario.addEventListener('submit', (e) => {
         }, 5000);
     }
 
-    if ((campos.cedula == null) ) {
-        validarFormularioIncorrecto(campos.nombre, 'nombre');
-        validarFormularioIncorrecto(campos.cedula, 'cedula');
-        validarFormularioIncorrecto(campos.correo, 'correo');
-        validarFormularioIncorrecto(campos.telefono, 'telefono');
-        validarFormularioIncorrecto(campos.operacion, 'operacion');
-    }
 
 });
-
-
-
 
 
 
