@@ -48,7 +48,7 @@ const miModulo = (() => {
                 deck.push( esp + tipo);
             }
         }
-        return _.shuffle( deck );;
+        return _.shuffle( deck );
     }
 
     // Esta función me permite tomar una carta
