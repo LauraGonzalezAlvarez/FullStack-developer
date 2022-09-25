@@ -23,8 +23,9 @@
     <th style="border: none;"><img align="left" width="200" height="200" src="/images/imgGitGubDorado.png"><br></th>
     <td width="60%" align="left" style="border: none;"><p vertical-align="middle"><h1>FullStack-developer</h1></p>
 <br>
-<div>
     <h3>  Titulo  </h3>
+<div>
+    
 <details>
  	<summary><img align="left" width="50" height="45" src="/images/imgGitHub.png"><br>
     </summary>
@@ -56,6 +57,7 @@
 </details>
 </div>
 <br>
+    <h3>  Titulo  </h3>
 <div>
 <details>
     
