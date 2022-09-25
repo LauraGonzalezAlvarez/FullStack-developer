@@ -5,7 +5,7 @@
 <div>
 <table style="border: none;">
   <tr style="border: none;">
-    <th style="border: none;"><img align="left" width="200" height="200" src="/images/imgGitGubDorado.png"><br></th>
+    <th style="border: none;"><img align="left" width="200" height="200" src="/images/imgProgramacion.png"><br></th>
     <td width="60%" align="left" style="border: none;"><p vertical-align="middle"><h1>FullStack-developer</h1></p>
 <br>
     <h3>  BD  </h3>
