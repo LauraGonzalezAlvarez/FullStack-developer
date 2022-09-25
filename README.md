@@ -20,28 +20,19 @@
 <div>
 <table style="border: none;">
   <tr style="border: none;">
-    <th style="border: none;"><img align="left" width="300" height="200" src="/images/imgGitGubDorado.png"><br></th>
+    <th style="border: none;"><img align="left" width="200" height="200" src="/images/imgGitGubDorado.png"><br></th>
     <td width="60%" align="left" style="border: none;"><p vertical-align="middle"><h1>FullStack-developer</h1></p>
 <br>
 <div>
 <details>
  	<summary><img align="left" width="50" height="45" src="/images/imgGitHub.png"><br>
-    </summary>
-    
+    </summary><h3>  Titulo  </h3>
 <br>
-
-
-
-
-
    1. [BD](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD)
    - [MongoDB + NodeJS](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD/MongoDB%20%2B%20NodeJS/app-mongodb-tutorial-en-vivo)
 
 
-
 <br>
-<br>
-
 </details>
 </div>
 <br>
@@ -49,7 +40,7 @@
 <details>
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
     </summary>
-<br>
+<br><h3>  Titulo  </h3>
   
   
 2. [Backend](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node)
@@ -59,25 +50,20 @@
         - [3. Generador de aplicaciones](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/generador-aplicaciones)
         - [4. Prac. myapp](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/myapp)
 
-
 <br>
-<br>
-
 </details>
 </div>
 <br>
 <div>
 <details>
+    <h3>  Titulo  </h3>
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
     </summary>
-<br>
-  
+<br>  
   
 3. [Frontend](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS)
     - [Fundamentos](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS/01-Fundamentos)
     - [Blackjack](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS/02-blackjack)
-
-
 
 <br>
 </details>
