@@ -23,13 +23,14 @@
     <th style="border: none;"><img align="left" width="200" height="200" src="/images/imgGitGubDorado.png"><br></th>
     <td width="60%" align="left" style="border: none;"><p vertical-align="middle"><h1>FullStack-developer</h1></p>
 <br>
-    <h3>  Titulo  </h3>
+    <h3>  BD  </h3>
 <div>
     
 <details>
  	<summary><img align="left" width="50" height="45" src="/images/imgGitHub.png"><br>
     </summary>
 <br>
+    
    1. [BD](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD)
    - [MongoDB + NodeJS](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD/MongoDB%20%2B%20NodeJS/app-mongodb-tutorial-en-vivo)
 
@@ -38,7 +39,7 @@
 </details>
 </div>
 <br>
-    <h3>  Titulo  </h3>
+    <h3>  Backend  </h3>
 <div>
 <details>
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
@@ -48,7 +49,7 @@
   
 2. [Backend](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node)
     - [Node JS](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node)
-        - [1.. Hola Mundo](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/01-hola-mundo)
+        - [1. Hola Mundo](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/01-hola-mundo)
         - [2. Fundamentos](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/02-fundamentos)
         - [3. Generador de aplicaciones](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/generador-aplicaciones)
         - [4. Prac. myapp](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/myapp)
@@ -57,7 +58,7 @@
 </details>
 </div>
 <br>
-    <h3>  Titulo  </h3>
+    <h3>  Frontend  </h3>
 <div>
 <details>
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
