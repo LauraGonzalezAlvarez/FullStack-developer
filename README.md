@@ -1,15 +1,52 @@
-# FullStack-developer
 
-## Contenido:
 
-1. [BD](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD)
-    - [MongoDB + NodeJS](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD/MongoDB%20%2B%20NodeJS/app-mongodb-tutorial-en-vivo)
-2. [Backend](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node)
-    - [Node JS](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node)
-        - [1.. Hola Mundo](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/01-hola-mundo)
-        - [2. Fundamentos](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/02-fundamentos)
-        - [3. Generador de aplicaciones](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/generador-aplicaciones)
-        - [4. Prac. myapp](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/myapp)
-3. [Frontend](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS)
-    - [Fundamentos](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS/01-Fundamentos)
-    - [Blackjack](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS/02-blackjack)
+
+
+<div>
+<table style="border: none;">
+  <tr style="border: none;">
+    <th style="border: none;"><img align="left" width="300" height="200" src="/images/WWCodePythonLogo (1).png"><br></th>
+    <td width="60%" align="left" style="border: none;"><p vertical-align="middle"><h1>Study Group Snippets & Notes</h1></p>
+<br>
+<div>
+<details>
+ 	<summary><img align="left" width="120" height="45" src="/images/Notes.png"><br>
+    </summary>
+    
+<br>
+
+
+
+
+
+*    [**Chapter 1**](notes/Chapter_1.md)
+*    [**Chapter 2**](notes/Chapter_2.md)
+*    [**Chapter 3**](notes/Chapter_3.md)
+*    [**Chapter 4**](notes/Chapter_4.md)
+
+
+<br>
+<br>
+
+</details>
+</div>
+<br>
+<div>
+<details>
+    <summary><img align="left" width="120" height="45" src="/images/Code.png">
+    </summary>
+<br>
+  
+  
+*    [**Chapter 1**](code/)
+*    [**Chapter 2**](code/)
+*    [**Chapter 3**](code/chapter_3/)
+*    [**Chapter 4**](code/chapter_4/)
+
+
+<br>
+</details>
+</div>
+</td>
+  </tr>
+</table>
