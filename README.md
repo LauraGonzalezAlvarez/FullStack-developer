@@ -24,9 +24,10 @@
     <td width="60%" align="left" style="border: none;"><p vertical-align="middle"><h1>FullStack-developer</h1></p>
 <br>
 <div>
+    <h3>  Titulo  </h3>
 <details>
  	<summary><img align="left" width="50" height="45" src="/images/imgGitHub.png"><br>
-    </summary><h3>  Titulo  </h3>
+    </summary>
 <br>
    1. [BD](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD)
    - [MongoDB + NodeJS](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/BD/MongoDB%20%2B%20NodeJS/app-mongodb-tutorial-en-vivo)
@@ -36,6 +37,7 @@
 </details>
 </div>
 <br>
+    <h3>  Titulo  </h3>
 <div>
 <details>
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
@@ -56,7 +58,7 @@
 <br>
 <div>
 <details>
-    <h3>  Titulo  </h3>
+    
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
     </summary>
 <br>  
