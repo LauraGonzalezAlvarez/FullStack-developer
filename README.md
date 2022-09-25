@@ -25,7 +25,7 @@
 <br>
 <div>
 <details>
- 	<summary><img align="left" width="120" height="45" src="/images/imgGitHub.png"><br>
+ 	<summary><img align="left" width="50" height="45" src="/images/imgGitHub.png"><br>
     </summary>
     
 <br>
@@ -47,7 +47,7 @@
 <br>
 <div>
 <details>
-    <summary><img align="left" width="120" height="45" src="/images/imgGitHub.png">
+    <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
     </summary>
 <br>
   
@@ -60,11 +60,15 @@
         - [4. Prac. myapp](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node/myapp)
 
 
-  
-  <br>
+<br>
+<br>
+
+</details>
+</div>
+<br>
 <div>
 <details>
-    <summary><img align="left" width="120" height="45" src="/images/imgGitHub.png">
+    <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
     </summary>
 <br>
   
