@@ -43,7 +43,7 @@
 <details>
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
     </summary>
-<br><h3>  Titulo  </h3>
+<br>
   
   
 2. [Backend](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Backend/Node)
@@ -60,10 +60,9 @@
     <h3>  Titulo  </h3>
 <div>
 <details>
-    
     <summary><img align="left" width="50" height="45" src="/images/imgGitHub.png">
     </summary>
-<br>  
+<br>
   
 3. [Frontend](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS)
     - [Fundamentos](https://github.com/LauraGonzalezAlvarez/FullStack-developer/tree/main/Frontend/JS/01-Fundamentos)
