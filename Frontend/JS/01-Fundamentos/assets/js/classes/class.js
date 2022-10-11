@@ -11,7 +11,7 @@ class PersonaNatural{
 
     }
     quienSoy(){
-        console.log(`Soy ${this.nombre} y mi identidad es ${this.codigo}`);
+        console.log(`Soy ${this.nombre} mi identidad es ${this.codigo}`);
     }
     miFrase(){
         this.quienSoy();
