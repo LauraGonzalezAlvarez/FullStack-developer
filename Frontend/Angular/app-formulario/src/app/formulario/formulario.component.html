@@ -1,0 +1,52 @@
+<form id="frmFor" autocomplete="off" [formGroup]="frmFormulario" (ngSubmit)="enviarInformacion()">
+  <div>
+    <label for="nombre">Nombre *</label>
+    <input [(ngModel)]="hola" formControlName="nombre" type="text" id="nombre" name="nombre"
+           placeholder="Digite el nombre">
+    <div *ngIf="
+      frmFormulario.get('nombre')?.hasError('required') &&
+      !frmFormulario.get('nombre')?.pristine">
+      El nombre es requerido
+    </div>
+  </div>
+  <div>
+    <label for="apellido">Apellido</label>
+    <input formControlName="apellido" type="text" id="apellido" name="apellido" placeholder="Digite el apellido">
+  </div>
+  <div>
+    <label for="email">Email *</label>
+    <input formControlName="email" type="email" id="email" name="email" placeholder="Digite el correo electrónico">
+    <div *ngIf="frmFormulario.get('email')?.hasError('required') && !frmFormulario.get('email')?.pristine">
+      El correo electrónico es requerido
+    </div>
+    <div *ngIf="frmFormulario.get('email')?.hasError('email') && !frmFormulario.get('email')?.pristine">
+      La estructura del correo no es valida
+    </div>
+  </div>
+  <div>
+    <label for="edad">Edad *</label>
+    <input formControlName="edad" type="number" id="edad" name="edad" placeholder="Digite su edad">
+    <div *ngIf="frmFormulario.get('edad')?.hasError('required') && !frmFormulario.get('edad')?.pristine">
+      La edad es requerida
+    </div>
+    <div *ngIf="frmFormulario.get('edad')?.hasError('min') && !frmFormulario.get('edad')?.pristine">
+      La edad minima es de 18 años
+    </div>
+    <div *ngIf="frmFormulario.get('edad')?.hasError('max') && !frmFormulario.get('edad')?.pristine">
+      La edad maxima es de 60 años
+    </div>
+    <div *ngIf="frmFormulario.get('edad')?.hasError('pattern') && !frmFormulario.get('edad')?.pristine">
+      Sólo se aceptan número enteros
+    </div>
+  </div>
+  <div>
+    <button type="submit" id="btnEnviar1" [disabled]="frmFormulario.invalid">Enviar1</button>
+  </div>
+</form>
+
+<div>
+  <button form="frmFor" type="submit" id="btnEnviar2" [disabled]="frmFormulario.invalid">Enviar2</button>
+</div>
+
+
+
