@@ -1,5 +1,5 @@
 # MyStore
-https://tiendadeproductos-39a08.web.app/
+Link aplicación deployment en Firebase https://tiendadeproductos-39a08.web.app/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
