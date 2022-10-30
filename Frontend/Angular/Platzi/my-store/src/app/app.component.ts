@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Product} from "./app-web/product.model";
 
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -8,86 +8,90 @@ import {Product} from "./app-web/product.model";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-//Atributos de la clase
-  title = 'my-store';
-  name: string = 'Laura';
-  age = 27;
-  img = 'https://fshoq.com/uploads/repository/other3/other6/john-towner-UO02gAW3c0c-unsplash.jpg';
+  widthImg = 10;
+  name = 'Nicolas';
+  age = 18;
+  img = 'https://www.w3schools.com/howto/img_avatar.png';
   btnDisabled = true;
-
-  //Ejemplo para renderizar un objeto
-  person = {
-    name: 'Laura',
-    age: 27,
-    avatar: this.img
+  register = {
+    name: '',
+    email: '',
+    password: '',
   }
-//Array que permite valores tipo string y number
-  names: (number | string)[] = [2, 'Juan', 'Pedro', 'Maria', 'Jose'];
-  names2: string[] = ['Juan', 'Pedro', 'Maria', 'Jose'];
-
-  //El array de products es de tipo Product, que es una interface
+  person = {
+    name: 'Nicolas',
+    age: 18,
+    avatar: 'https://www.w3schools.com/howto/img_avatar.png'
+  }
+  names: string[] = ['Nico', 'Juli', 'Santi'];
+  newName = '';
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
+  };
   products: Product[] = [
     {
-      name:'Colección de albumes',
+      name: 'EL mejor juguete',
       price: 565,
-      image: './assets/images/album.jpg',
-      category: 'Música'
+      image: './assets/images/toy.jpg',
+      category: 'all',
     },
     {
-      name:'Bicicleta casi nueva',
-      price: 565,
+      name: 'Bicicleta casi nueva',
+      price: 356,
       image: './assets/images/bike.jpg'
     },
     {
-      name:'Mis libros',
-      price: 565,
+      name: 'Colleción de albumnes',
+      price: 34,
+      image: './assets/images/album.jpg'
+    },
+    {
+      name: 'Mis libros',
+      price: 23,
       image: './assets/images/books.jpg'
     },
     {
-      name:'Mis gafas',
-      price: 565,
-      image: './assets/images/glasses.jpg'
-    },
-    {
-      name:'La mejor casa',
-      price: 565,
+      name: 'Casa para perro',
+      price: 34,
       image: './assets/images/house.jpg'
     },
     {
-      name:'El mejor juguete para niños',
-      price: 565,
-      image: './assets/images/toy.jpg'
-    },
-    ]
-  newName = '';
+      name: 'Gafas',
+      price: 3434,
+      image: './assets/images/glasses.jpg'
+    }
+  ]
 
-  //Metodos
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;
   }
 
-  incrementAge() {
-    this.person.age++;
+  increaseAge() {
+    this.person.age += 1;
   }
 
   onScroll(event: Event) {
-    const element = event.target as HTMLElement;//evento que se va a comportar como un elemento HTML
+    const element = event.target as HTMLElement;
     console.log(element.scrollTop);
   }
 
-
   changeName(event: Event) {
     const element = event.target as HTMLInputElement;
-    element.value;
     this.person.name = element.value;
   }
 
   addName() {
     this.names.push(this.newName);
-     this.newName = '';
+    this.newName = '';
   }
+
   deleteName(index: number) {
     this.names.splice(index, 1);
   }
 
+  onRegister() {
+    console.log(this.register);
+  }
 }
