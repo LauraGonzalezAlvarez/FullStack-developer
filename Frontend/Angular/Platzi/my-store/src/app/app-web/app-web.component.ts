@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import {Product} from "./app-web/product.model";
+import {Product} from "./product.model";
 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app-web.component.html',
+  styleUrls: ['./app-web.component.scss']
 })
-export class AppComponent {
+export class AppWebComponent {
 //Atributos de la clase
   title = 'my-store';
   name: string = 'Laura';
@@ -58,7 +58,7 @@ export class AppComponent {
       price: 565,
       image: './assets/images/toy.jpg'
     },
-    ]
+  ]
   newName = '';
 
   //Metodos
@@ -84,7 +84,7 @@ export class AppComponent {
 
   addName() {
     this.names.push(this.newName);
-     this.newName = '';
+    this.newName = '';
   }
   deleteName(index: number) {
     this.names.splice(index, 1);

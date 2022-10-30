@@ -1,0 +1,94 @@
+<h1>Propiedades</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<input type="text" [value]="name">
+<input type="text" [value]="person.age">
+<input type="text" [value]="person.name">
+<input type="text" [value]="person.avatar">
+
+<progress max="100" [value]="person.age"></progress>
+<img width="100" [src]="img">
+
+
+<hr>
+<h1>Hola mundo</h1>
+<h2>{{' Hola mundo'.repeat(2)}}</h2>
+<p>3+3 = {{3+3}}</p>
+<h3>Hola, soy {{name}} y tengo {{age}} de edad</h3>
+<img src="{{img}}" alt="imagen" width="100">
+
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<button (click)="toggleButton()">Toggle Button </button>
+<p>Edad {{person.age}}</p>
+<button (click)="incrementAge()" >Age ++</button>
+
+<hr>
+<h1>Leer el scroll de un elemento</h1>
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias atque corporis cum deserunt esse expedita fugit harum labore laboriosam minus odio, quibusdam, rem repudiandae totam. Distinctio neque nobis voluptate?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias atque corporis cum deserunt esse expedita fugit harum labore laboriosam minus odio, quibusdam, rem repudiandae totam. Distinctio neque nobis
+    voluptate?</p>
+</div>
+<h1>Leyendo el input y mostrandolo en tiempo real</h1>
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
+<p>Nombre: {{person.name}}</p>
+
+<h1>Eventos con ngmodel</h1>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name">
+<p>valido:{{nameInput.valid}}</p>
+<p>Edad{{person.age}}</p>
+<input type="number" required max="18" min="10" #ageInput="ngModel" [(ngModel)]="person.age">
+<p>valido:{{ageInput.valid}}</p>
+
+<hr>
+<h1>*ngIf</h1>
+<input type="text" required  [(ngModel)]="person.name">
+<p *ngIf="person.name==='Laurilla'">Soy Laurilla</p>
+<p *ngIf="person.name==='Laura'&& person.age===18; else myBlock ">Soy Laura</p>
+<ng-template #myBlock>
+  <p>Bloque de else</p>
+</ng-template>
+
+<hr>
+<h1>*ngForm para operar array </h1>
+<ul>
+  <input type="text" required  [(ngModel)]="newName">
+  <button (click)="addName()">Add name</button>
+  <li *ngIf="names.length === 0">No hay nombres</li>
+  <li *ngFor="let name of names; index as i">
+    {{i}}. {{name}}
+    <button (click) = "deleteName(i)">Delete</button>
+  </li>
+</ul>
+
+<hr/>
+<h1>*ngFor Objs</h1>
+<div>
+  <div *ngFor="let product of products">
+    <img width="250" [src]="product.image" alt="image">
+    <h2>{{ product.price }}</h2>
+    <p>{{ product.name }}</p>
+  </div>
+</div>
+<hr/>
+
+<hr/>
+<h1>ngSwitch</h1>
+
+<input type="text" required [(ngModel)]="person.name">
+
+<!--En vez de usar if, se usa switch -->
+<!--<p *ngIf="person.name==='Laurilla'">La persona es Laurilla</p>
+
+<p *ngIf="person.name==='Maria'">La persona es Maria</p>
+
+<p *ngIf="person.name==='Antonella'">La persona es Antonella</p>-->
+
+<!--Implementando ngSwitch-->
+
+<div [ngSwitch]="person.name">
+  <p *ngSwitchCase="'Laurilla'">La persona es Laurilla</p>
+  <p *ngSwitchCase="'Antonella'">La persona es Antonella</p>
+  <p *ngSwitchCase="'Julian'">La persona es Julian</p>
+  <p *ngSwitchDefault>No hace match</p>
+</div>
