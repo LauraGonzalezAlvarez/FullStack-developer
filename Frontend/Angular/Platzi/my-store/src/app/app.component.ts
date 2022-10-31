@@ -8,16 +8,21 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  //Atributos de la clase
   widthImg = 10;
   name = 'Nicolas';
   age = 18;
   img = 'https://www.w3schools.com/howto/img_avatar.png';
   btnDisabled = true;
+
+  //Ejemplo para renderizar un objeto
   register = {
     name: '',
     email: '',
     password: '',
   }
+
+  //
   person = {
     name: 'Nicolas',
     age: 18,
@@ -30,6 +35,7 @@ export class AppComponent {
     height: 100,
     background: 'red'
   };
+  // El array de products es de tipo Product, que es una interface
   products: Product[] = [
     {
       name: 'EL mejor juguete',
@@ -64,6 +70,7 @@ export class AppComponent {
     }
   ]
 
+  //Metodos
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;
   }
