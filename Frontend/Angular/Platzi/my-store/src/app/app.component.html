@@ -1,40 +1,40 @@
-<h1>Formulario</h1>
-<form (ngSubmit)="onRegister()" #myForm="ngForm">
-  <div class="input-group">
-    <label for="name">Nombre</label>
-    <input type="text" name="name" required id="name" [(ngModel)]="register.name" />
-    <p>Mensajes de error</p>
+<h1>Formulario</h1> <!--Ejemplo de formulario -->
+<form (ngSubmit)="onRegister()" #myForm="ngForm"> <!-- -->
+  <div class="input-group"> <!-- -->
+    <label for="name">Nombre</label> <!-- -->
+    <input type="text" name="name" required id="name" [(ngModel)]="register.name" /> <!-- -->
+    <p>Mensajes de error</p> <!-- -->
   </div>
-  <div class="input-group">
-    <label for="email">Email</label>
-    <input type="email" name="email" required id="email" [(ngModel)]="register.email" />
-    <p>Mensajes de error</p>
+  <div class="input-group"> <!-- -->
+    <label for="email">Email</label> <!-- -->
+    <input type="email" name="email" required id="email" [(ngModel)]="register.email" /> <!-- -->
+    <p>Mensajes de error</p> <!-- -->
   </div>
-  <div class="input-group">
-    <label for="password">Password</label>
-    <input type="password" name="password" required id="password" [(ngModel)]="register.password" />
-    <p>Mensajes de error</p>
+  <div class="input-group"> <!-- -->
+    <label for="password">Password</label> <!-- -->
+    <input type="password" name="password" required id="password" [(ngModel)]="register.password" /> <!-- -->
+    <p>Mensajes de error</p> <!-- -->
   </div>
-  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
-  <button type="button">Accion</button>
+  <button [disabled]="myForm.invalid" type="submit">Registrar</button> <!-- -->
+  <button type="button">Accion</button> <!-- -->
 </form>
 <hr />
-<h1>NgClass & NgStyle</h1>
-<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<h1>NgClass & NgStyle</h1> <!-- -->
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" /> <!-- -->
 <hr class="line-error"
     [ngClass]="{
     'valid': nameInput4.valid,
     'invalid':  nameInput4.invalid
   }"
 />
-<p class="message-error" [class.invalid]="nameInput4.invalid">
+<p class="message-error" [class.invalid]="nameInput4.invalid"><!-- -->
   El campo es requerido
 </p>
-<div class="styles">
+<div class="styles"><!-- -->
   <div>
-    <input type="number" [(ngModel)]="box.width" />
-    <input type="number" [(ngModel)]="box.height" />
-    <input type="color" [(ngModel)]="box.background" />
+    <input type="number" [(ngModel)]="box.width" /><!-- -->
+    <input type="number" [(ngModel)]="box.height" /><!-- -->
+    <input type="color" [(ngModel)]="box.background" /><!-- -->
   </div>
   <div>
     <div [ngStyle]="{
@@ -60,7 +60,8 @@
     <input type="text" [(ngModel)]="widthImg" />
   </div>
   <div>
-    <img [style.width.%]="widthImg" [src]="person.avatar" />
+    <img [style.width.%]="widthImg" [src]="person.avatar" alt="imagen"/>
+
   </div>
 </div>
 <hr/>
@@ -134,17 +135,19 @@
 <div class="box" (scroll)="onScroll($event)">
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, voluptatibus minima. Deserunt cum ex aliquid quaerat doloremque totam autem excepturi dolorem? Reprehenderit eius illo sequi consequuntur quaerat eaque ratione similique.</p>
 </div>
-<p>Nombre {{ person.name }}</p>
-<input type="text" [value]="person.name" (keyup)="changeName($event)" />
+<p>Nombre {{ person.name }}</p>  <!--String interpolation = estamos renderizando el objeto person.name -->
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />  <!--Tenemos property binding [] y event binding ()= permite momdificar el valor de los atributos del html desde el controlador, el clic de un boton, el detectar cambios de un formulario, etc. () sirve para el bindeo de la propiedad del elemento  -->
+<!-- La tradicción de binding sería enlace, y sirve justamente para eso realizar un nexo, unión entre unas cosas y otras  -->
 <hr/>
 <h1>Propiedades</h1>
-<button [disabled]="btnDisabled">Enviar</button>
-<input type="text" [value]="person.name" />
-<progress max="100" [value]="person.age"></progress>
-<img width="100" [src]="person.avatar" />
+<button [disabled]="btnDisabled">Enviar</button>  <!-- Property binding = El atributo disable del button permite ser controlado desde el componente-->
+<input type="text" [value]="person.name" />  <!--Proterty binding para modificar los atributos del html, tenemos un objeto persona y estamos accediendo al nombre -->
+<progress max="100" [value]="person.age"></progress>  <!--Property binding = para modificar los atributos del html, estamos mostrando una barra de progreso según la edad de la persona -->
+<img width="100" [src]="person.avatar" alt="imagen"/>  <!--Property binding = para modificar los atributos del html, estamos accediendo al objeto persona.avatar para mostrar la imagen -->
 <hr/>
 <h1>Hola mundo</h1>
-<h2>{{ 'Hola Mundo'.repeat(5) }}</h2>
-<p>3 + 3 = {{ 3 + 3 }}</p>
-<h3>Hola, soy {{ name }} y tengo {{ age }}</h3>
-<img width="200" src={{img}} alt="image">
+<h2>{{ 'Hola Mundo'.repeat(5) }}</h2> <!--{{}}= String interpolation para enviar datos desde el componente hacia la vista que es renderizar o presentar  -->
+<p>3 + 3 = {{ 3 + 3 }}</p> <!-- Tambien se utiliza el string interpolation -->
+<h3>Hola, soy {{ name }} y tengo {{ age }}</h3>  <!-- Propiedad llamada name y age que está declarada en el componente esos valores lo vamos a renderizar hacia la vista -->
+<img width="200" [src]="img" alt="image"/>  <!--Property binding= Controla y modifica las propiedades de los elementos html, [] para modificar dinámicamente ese atributo desde el controlador.  Etiqueta img cuyo atributo src se modifica según la propiedad img declarada en el componente-->
+<!-- -->

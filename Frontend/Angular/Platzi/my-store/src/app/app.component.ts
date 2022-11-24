@@ -22,7 +22,7 @@ export class AppComponent {
     password: '',
   }
 
-  //
+  //Ejemplo para renderizar un objeto
   person = {
     name: 'Nicolas',
     age: 18,
@@ -73,19 +73,26 @@ export class AppComponent {
   //Metodos
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;
-  }
 
+  }
+ // Metododos
   increaseAge() {
     this.person.age += 1;
   }
 
+  // Metodo para detectar el evento de click
   onScroll(event: Event) {
     const element = event.target as HTMLElement;
+    // HTMLElement = Esta interface representa cualquier elemento HTML, algunos elementos implementan ctamente esta interface , mientras que otros la implementan a través de una interfaz que hereda de esta.
     console.log(element.scrollTop);
   }
+  //La EventTargetinterfaz está implementada por objetos que pueden recibir eventos y pueden tener oyentes para ellos. En otras palabras, cualquier objetivo de eventos implementa los tres métodos asociados con esta interfaz.
+  //
+  // Element, y sus hijos, así como Documenty Window, son los destinos de eventos más comunes, pero otros objetos también pueden ser destinos de eventos. Por ejemplo XMLHttpRequest, AudioNodey AudioContexttambién son destinos de eventos.
 
   changeName(event: Event) {
     const element = event.target as HTMLInputElement;
+    // HTMLInputElement = Esta interface proporciona  propiedades y métodos para manipular elementos de entrada de tipo <input> en un documento HTML.
     this.person.name = element.value;
   }
 
