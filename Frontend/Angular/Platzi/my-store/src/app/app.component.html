@@ -126,25 +126,31 @@
 <input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age" />
 <p>Valid: {{ ageInput.valid }}</p>
 <hr/>
+<!-------------------------------------------------------------------------------------------------------->
 
 <h1>Eventos</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
 <p>Edad {{ person.age }}</p>
 <button (click)="increaseAge()">Age ++</button>
-<div class="box" (scroll)="onScroll($event)">
+<div class="box" (scroll)="onScroll($event)"> <!-- Los eventos nativos de html se envian con el signo pesos -->
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, voluptatibus minima. Deserunt cum ex aliquid quaerat doloremque totam autem excepturi dolorem? Reprehenderit eius illo sequi consequuntur quaerat eaque ratione similique.</p>
 </div>
 <p>Nombre {{ person.name }}</p>  <!--String interpolation = estamos renderizando el objeto person.name -->
-<input type="text" [value]="person.name" (keyup)="changeName($event)" />  <!--Tenemos property binding [] y event binding ()= permite momdificar el valor de los atributos del html desde el controlador, el clic de un boton, el detectar cambios de un formulario, etc. () sirve para el bindeo de la propiedad del elemento  -->
+<input type="text" [value]="person.name" (keyup)="change
+Name($event)" />  <!--Tenemos property binding [] y event binding ()= permite momdificar el valor de los atributos del html desde el controlador, el clic de un boton, el detectar cambios de un formulario, etc. () sirve para el bindeo de la propiedad del elemento  -->
 <!-- La tradicción de binding sería enlace, y sirve justamente para eso realizar un nexo, unión entre unas cosas y otras  -->
+<!-- keyup = Evento para capturar cada vez que tecleamos -->
 <hr/>
-<h1>Propiedades</h1>
+<!-------------------------------------------------------------------------------------------------------->
+
+<!--  --><h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>  <!-- Property binding = El atributo disable del button permite ser controlado desde el componente-->
 <input type="text" [value]="person.name" />  <!--Proterty binding para modificar los atributos del html, tenemos un objeto persona y estamos accediendo al nombre -->
 <progress max="100" [value]="person.age"></progress>  <!--Property binding = para modificar los atributos del html, estamos mostrando una barra de progreso según la edad de la persona -->
 <img width="100" [src]="person.avatar" alt="imagen"/>  <!--Property binding = para modificar los atributos del html, estamos accediendo al objeto persona.avatar para mostrar la imagen -->
 <hr/>
+<!-------------------------------------------------------------------------------------------------------->
 <h1>Hola mundo</h1>
 <h2>{{ 'Hola Mundo'.repeat(5) }}</h2> <!--{{}}= String interpolation para enviar datos desde el componente hacia la vista que es renderizar o presentar  -->
 <p>3 + 3 = {{ 3 + 3 }}</p> <!-- Tambien se utiliza el string interpolation -->
