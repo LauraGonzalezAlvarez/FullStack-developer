@@ -28,6 +28,7 @@ export class AppComponent {
     age: 18,
     avatar: 'https://www.w3schools.com/howto/img_avatar.png',
   };
+  /* Vector de string llamado names */
   names: string[] = ['Nico', 'Juli', 'Santi'];
   newName = '';
   box = {

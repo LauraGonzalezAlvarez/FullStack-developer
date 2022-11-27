@@ -23,7 +23,7 @@
   color: white;
   opacity: 0;
   transition: all linear .5s;
-  &.invalid {
+  &.invalid { /* Clase invalid de la linea del html 58, muestra el mensaje (opacity:1) cuando [class.invalid]  es verdadero */
     opacity: 1;
   }
 }
