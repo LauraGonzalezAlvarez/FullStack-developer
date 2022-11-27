@@ -152,6 +152,7 @@
 <!-- #nameInput = Variable que hace referencia a ese templete  -->
 <!--#nameInput="ngModel" =  Que el valor lo va a tomar desde ngModel   -->
 <p>Valid: {{ nameInput.valid }}</p><!-- String interpolation , nameInput = El mismo nombre de la variable del templete .valid = Que dicho valor debe ser válido para este caso (required) que ese campo es requerido -->
+
 <p>Age {{ person.age }}</p>
 <input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age" />
 <p>Valid: {{ ageInput.valid }}</p>
