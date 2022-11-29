@@ -1,94 +1,204 @@
-<h1>Propiedades</h1>
-<button [disabled]="btnDisabled">Enviar</button>
-<input type="text" [value]="name">
-<input type="text" [value]="person.age">
-<input type="text" [value]="person.name">
-<input type="text" [value]="person.avatar">
-
-<progress max="100" [value]="person.age"></progress>
-<img width="100" [src]="img" alt="holi"/>
-
-
-<hr>
-<h1>Hola mundo</h1>
-<h2>{{' Hola mundo'.repeat(2)}}</h2>
-<p>3+3 = {{3+3}}</p>
-<h3>Hola, soy {{name}} y tengo {{age}} de edad</h3>
-<img src="{{img}}" alt="imagen" width="100"/>
-
-<h1>Eventos</h1>
-<button [disabled]="btnDisabled">Enviar</button>
-<button (click)="toggleButton()">Toggle Button </button>
-<p>Edad {{person.age}}</p>
-<button (click)="incrementAge()" >Age ++</button>
-
-<hr>
-<h1>Leer el scroll de un elemento</h1>
-<div class="box" (scroll)="onScroll($event)">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias atque corporis cum deserunt esse expedita fugit harum labore laboriosam minus odio, quibusdam, rem repudiandae totam. Distinctio neque nobis voluptate?</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias atque corporis cum deserunt esse expedita fugit harum labore laboriosam minus odio, quibusdam, rem repudiandae totam. Distinctio neque nobis
-    voluptate?</p>
+<h1>Formulario</h1>
+<!--Ejemplo de formulario -->
+<form (ngSubmit)="onRegister()" #myForm="ngForm"><!-- Templete #myForm="ngForm para poderlo utilizar mas adelante -->
+  <!--(ngSubmit)= Va ser accionado por el boton de type "submit" -->
+  <!-- onRegister() = Permite leer el evento para registrar al usuario -->
+  <div class="input-group">
+    <!-- -->
+    <label for="name">Nombre</label> <!-- -->
+    <input type="text" name="name" required id="name" [(ngModel)]="register.name" /> <!--name="name" lo exige angular en los formularios -->
+    <p>Mensajes de error</p> <!-- -->
+  </div>
+  <div class="input-group">
+    <!-- -->
+    <label for="email">Email</label> <!-- -->
+    <input type="email" name="email" required id="email" [(ngModel)]="register.email" /> <!-- -->
+    <p>Mensajes de error</p> <!-- -->
+  </div>
+  <div class="input-group">
+    <!-- -->
+    <label for="password">Password</label> <!-- -->
+    <input type="password" name="password" required id="password" [(ngModel)]="register.password" /> <!-- -->
+    <p>Mensajes de error</p> <!-- -->
+  </div>
+  <button [disabled]="myForm.invalid" type="submit">Registrar</button> <!--[disabled]="myForm.invalid" habilita el formulario solo si es válido, es decir si todos los campo son diligenciados -->
+  <button type="button">Accion</button> <!--Siempre que se tengan botones dentro de formularios siempre debe ponerle un type, cuando es el boton para enviar la información es de tipo submit sino es button -->
+</form>
+<hr />
+<!-------------------------------------------------------------------------------------------------------->
+<!-- Con el binding de [class] y [style] puedes agregar clases y estilos fácilmente. Pero se vuelve algo complicado en el caso de que necesites agregar varias clases o modificar muchos estilos Angular ofrece las directivas ngClass y ngStyle-->
+<h1>NgClass & NgStyle</h1> <!-- -->
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" /> 
+<!-- [ngClass]= podemos enviar un objeto, le decimos aplica esta clase 'valid' solo si el nameInput4. es valido -->
+<!-- Tambien, aplica esta clase 'invalid' si el nameInput4 es invalido -->
+<!-- El ngClass está escuchando el estado del input si es valido o no -->
+<hr class="line-error" [ngClass]="{
+    'valid': nameInput4.valid,
+    'invalid':  nameInput4.invalid
+  }" />
+<p class="message-error" [class.invalid]="nameInput4.invalid">
+  <!-- -->
+  El campo es requerido
+</p>
+<!-- Ejemplo con ngStyle -->
+<div class="styles">
+  <div>
+    <!-- Se tiene un objeto box con tres posiciones: widht, height y background -->
+    <input type="number" [(ngModel)]="box.width" /><!--Escucha y modifica el campo -->
+    <input type="number" [(ngModel)]="box.height" /><!--Escucha y modifica el campo -->
+    <input type="color" [(ngModel)]="box.background" /><!--Escucha y modifica el campo -->
+  </div>
+  <div>
+    <!--va asignando los valores que escucha en los campos y los va asignando de acuerdo a las propiedades css  -->
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.background,
+      'display': 'block'
+    }"></div>
+  </div>
 </div>
-<h1>Leyendo el input y mostrandolo en tiempo real</h1>
-<input type="text" [value]="person.name" (keyup)="changeName($event)">
-<p>Nombre: {{person.name}}</p>
 
-<h1>Eventos con ngmodel</h1>
-<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name">
-<p>valido:{{nameInput.valid}}</p>
-<p>Edad{{person.age}}</p>
-<input type="number" required max="18" min="10" #ageInput="ngModel" [(ngModel)]="person.age">
-<p>valido:{{ageInput.valid}}</p>
+<hr />
+<!-------------------------------------------------------------------------------------------------------->
+<h1>Class & Style</h1> <!--Así como anteriormente utilizaste los corchetes [] para bindear atributos como el [src] de una imagen o el [href] de un enlace, puedes bindear clases para que Angular las agregue o quite dinámicamente si se cumple una condición de la siguiente manera: -->
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" /> <!-- [(ngModel)]= Para escuchar y modificar a person.name , #nameInput2 = nombre de variable tipo template-->
+<p class="message-error" [class.invalid]="nameInput2.invalid"> <!-- Queremos estilos dinámicos de acuerdo al estado del input  -->
+ <!-- [class.invalid] = Clase llamada invalid le podemos poner cualquier nombr -->
+ <!-- nameInput2.invalid = estamos diciendo que si el input con variable #nameInput2 es invalido active la clases mesage-error -->
+  El campo es requerido <!-- Esto fue el ejemplo de una clase dinámica -->
+</p>
 
-<hr>
-<h1>*ngIf</h1>
-<input type="text" required  [(ngModel)]="person.name">
-<p *ngIf="person.name==='Laurilla'">Soy Laurilla</p>
-<p *ngIf="person.name==='Laura'&& person.age===18; else myBlock ">Soy Laura</p>
-<ng-template #myBlock>
-  <p>Bloque de else</p>
-</ng-template>
 
-<hr>
-<h1>*ngForm para operar array </h1>
-<ul>
-  <input type="text" required  [(ngModel)]="newName">
-  <button (click)="addName()">Add name</button>
-  <li *ngIf="names.length === 0">No hay nombres</li>
-  <li *ngFor="let name of names; index as i">
-    {{i}}. {{name}}
-    <button (click) = "deleteName(i)">Delete</button>
-  </li>
-</ul>
+<label>Nombre</label><!-- Ejemplo para modificar el estilo directamente -->
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Texto texto texto</p><!-- [style.font-style] = se está modificando el estilo de la fuente  -->
+<!-- nameInput3.invalid ? 'italic' : 'normal' = validando el input preguntando si es invalid muestro italic sino muestra con letra normal -->
 
-<hr/>
-<h1>*ngFor Objs</h1>
-<div>
-  <div *ngFor="let product of products">
-    <img width="250" [src]="product.image" alt="image">
-    <h2>{{ product.price }}</h2>
+
+<div class="styles"><!-- En este ejemplo se modifica el estilo de forma dinámica -->
+  <div>
+    <input type="text" [(ngModel)]="widthImg" />
+  </div>
+  <div>
+    <img [style.width.%]="widthImg" [src]="person.avatar" alt="imagen" /><!-- [style.width.%] modifica el tamaño de la imagen  -->
+<!-- Lo que hace este ejemplo es modificar una imágen dinámicamente dependiendo del valor que vayamos ingresoando en el input -->
+  </div>
+</div>
+<hr />
+
+<!-------------------------------------------------------------------------------------------------------->
+<h1>ngSwitch</h1> <!-- Esta sentencia permite determinar el flujo de control de la aplicación y qué elementos mostrar entre multiples elementos HTML  -->
+<input type="text" required [(ngModel)]="person.name" /> <!-- input de tipo texto el cual es un campo requerido, ngModel para el intercambio de datos de forma bidireccional entre la vista y el componente -->
+<div [ngSwitch]="person.name"><!--Sentencia ngswith para determinar el nombre que se ingresa y mostrar mensaje correspondiente si no se tiene un default  -->
+  <p *ngSwitchCase="'nicolas'">
+    La persona es nicolas.
+  </p>
+  <p *ngSwitchCase="'julian'">
+    La persona es Julian
+  </p>
+  <p *ngSwitchCase="'camilo'">
+    La persona es Camilo
+  </p>
+  <p *ngSwitchDefault>No hace match</p>
+</div>
+<!-- <p *ngIf="person.name === 'Nicolasito'">
+  La persona es nicolas
+</p>
+<p *ngIf="person.name === 'julian'">
+  La persona es Julian
+</p>
+<p *ngIf="person.name === 'camilo'">
+  La persona es Camilo
+</p> -->
+<!-------------------------------------------------------------------------------------------------------->
+<hr />
+<h1>*ngFor Objs</h1> <!-- *ngFor para iterar y mostrar cada propiedad de un objeto  -->
+<div class="products--grid"> <!-- products--grid es una clase de estilos en el scss -->
+  <div *ngFor="let product of products"> <!-- *ngFor para iterar un array de objetos llamado products con una variable temporal llamada product -->
+    <img [src]="product.image" alt="image"> <!-- property bindig = Permite controlar y modificar las propiedades de los elementos HTML-->
+    <h2>{{ product.price }}</h2> <!-- Por medio de String interpolation mostramos el precio y el nombre d ela imagen -->
     <p>{{ product.name }}</p>
   </div>
 </div>
-<hr/>
+<hr />
+<!-------------------------------------------------------------------------------------------------------->
+<h1>*ngFor</h1><!-- Se utiliza para iterar array -->
+<input type="text" required [(ngModel)]="newName" /> <!-- Input requerido con ngModel para el intercambio de datos de forma bidireccional entre el componente y la vista  -->
+<button (click)="addName()">Add name</button> <!-- Event binding =  Event Binding permite controlar los eventos que suceden en estos elementos del html-->
+<ul> <!--  -->
+  <li *ngIf="names.length === 0">No hay nombres</li> <!-- Condicional *ngIf embebido en el HTML para mostrar o no un elemento -->
+  <li *ngFor="let name of names; index as i"> <!-- *ngFor = Crea una variable temporal llamada name que contiene cada valor del vector de string llamado names ;  -->
+    {{i}} {{ name }}<!-- index as i = Indice de iteración que lleva el numero de iteración --> <!-- Muestra el valor de la variable temporal name por medio de un string interpolation  -->
+    <button (click)="deleteName(i)">Delete</button> <!-- Event binding = Event Binding permite controlar los eventos que suceden en los elementos html -->
+  </li>
+</ul>
+<hr />
 
-<hr/>
-<h1>ngSwitch</h1>
+<!-------------------------------------------------------------------------------------------------------->
+<h1>*ngIf</h1><!-- Condicional if en cualquier lenguaje, Angular posibilita utilizar este condicionante embebido en el HTML para mostrar o no un elemento -->
+<input type="text" required [(ngModel)]="person.name" /><!--Input de tipo texto requerido, ngmodel para el intercambio de datos de forma bidireccional entre el componente y la vista   -->
+<p *ngIf="person.name === 'nicolas'">Soy Nicolas</p><!--  *gnIf = Valida si persona tiene un valor perticular, si es así muestra el contenido Soy Nicolas -->
+<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">Soy Julian</p><!--*ngIf que valida nombre y edad al objeto persona si es correcto muestra Soy Julian sino muestra un ng-template  -->
+<ng-template #myBlock><!-- ng.template  con variable #myBlock -->
+  <p>Bloque de else</p><!--Lo que va a mostrar  -->
+</ng-template>
+<hr />
+<!-------------------------------------------------------------------------------------------------------->
 
-<input type="text" required [(ngModel)]="person.name">
+<h1>NgModel</h1><!-- Permite el intercambio de datos de forma bidireccional entre el componente y la vista -->
+<p>Nombre {{ person.name }}</p> <!-- String interpolation -->
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" /><!-- [(ngModel)]="person.name" = Permite ver su valor y modificarlo en tiempo real, especial para los inputs, debemos importar el paquete de formulario  -->
+<!-- #nameInput = Variable que hace referencia a ese templete  -->
+<!--#nameInput="ngModel" =  Que el valor lo va a tomar desde ngModel   -->
+<p>Valid: {{ nameInput.valid }}</p><!-- String interpolation , nameInput = El mismo nombre de la variable del templete .valid = Que dicho valor debe ser válido para este caso (required) que ese campo es requerido -->
 
-<!--En vez de usar if, se usa switch -->
-<!--<p *ngIf="person.name==='Laurilla'">La persona es Laurilla</p>
+<p>Age {{ person.age }}</p>
+<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age" />
+<p>Valid: {{ ageInput.valid }}</p>
+<hr />
+<!-------------------------------------------------------------------------------------------------------->
 
-<p *ngIf="person.name==='Maria'">La persona es Maria</p>
 
-<p *ngIf="person.name==='Antonella'">La persona es Antonella</p>-->
-
-<!--Implementando ngSwitch-->
-
-<div [ngSwitch]="person.name">
-  <p *ngSwitchCase="'Laurilla'">La persona es Laurilla</p>
-  <p *ngSwitchCase="'Antonella'">La persona es Antonella</p>
-  <p *ngSwitchCase="'Julian'">La persona es Julian</p>
-  <p *ngSwitchDefault>No hace match</p>
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button> <!-- Property binding -->
+<button (click)="toggleButton()">Toggle Button</button><!-- Event binding () = Event Binding permite controlar los eventos que suceden en estos elementos del html -->
+<p>Edad {{ person.age }}</p> <!--String interpolation leer la edad de la persona que se encuentra en el objeto person en el componente -->
+<button (click)="increaseAge()">Age ++</button><!--event binding ()= Event Binding permite controlar los eventos que suceden en estos elementos del html, en este caso estamos incrementando la edad al leer el evento click -->
+<div class="box" (scroll)="onScroll($event)">
+  <!-- Los eventos nativos de html se envian con el signo pesos -->
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, voluptatibus minima. Deserunt cum ex aliquid
+    quaerat doloremque totam autem excepturi dolorem? Reprehenderit eius illo sequi consequuntur quaerat eaque ratione
+    similique.</p>
 </div>
+<p>Nombre {{ person.name }}</p>
+<!--String interpolation = estamos renderizando el objeto person.name -->
+<input type="text" [value]="person.name" (keyup)="change
+Name($event)" /><!-- Tenemos property binding []  -->
+<!--Tenemos property binding [] y event binding ()= Event Binding permite controlar los eventos que suceden en estos elementos del html, el clic de un boton, el detectar cambios de un formulario, etc. () sirve para el bindeo de la propiedad del elemento  -->
+<!-- La traducción de binding sería enlace, y sirve justamente para eso realizar un nexo, unión entre unas cosas y otras  -->
+<!-- keyup = Evento para capturar cada vez que tecleamos -->
+<hr />
+<!-------------------------------------------------------------------------------------------------------->
+
+<!--  -->
+<h1>Propiedades</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<!-- Property binding = El atributo disable del button permite ser controlado desde el componente-->
+<input type="text" [value]="person.name" />
+<!--Proterty binding para modificar los atributos del html, tenemos un objeto persona y estamos accediendo al nombre -->
+<progress max="100" [value]="person.age"></progress>
+<!--Property binding = para modificar los atributos del html, estamos mostrando una barra de progreso según la edad de la persona -->
+<img width="100" [src]="person.avatar" alt="imagen" />
+<!--Property binding = para modificar los atributos del html, estamos accediendo al objeto persona.avatar para mostrar la imagen -->
+<hr />
+<!-------------------------------------------------------------------------------------------------------->
+<h1>Hola mundo</h1>
+<h2>{{ 'Hola Mundo'.repeat(5) }}</h2>
+<!--{{}}= String interpolation para enviar datos desde el componente hacia la vista que es renderizar o presentar  -->
+<p>3 + 3 = {{ 3 + 3 }}</p> <!-- Tambien se utiliza el string interpolation -->
+<h3>Hola, soy {{ name }} y tengo {{ age }}</h3>
+<!-- Propiedad llamada name y age que está declarada en el componente esos valores lo vamos a renderizar hacia la vista -->
+<img width="200" [src]="img" alt="image" />
+<!--Property binding= Controla y modifica las propiedades de los elementos html, [] para modificar dinámicamente ese atributo desde el controlador.  Etiqueta img cuyo atributo src se modifica según la propiedad img declarada en el componente-->
+<!-- -->
