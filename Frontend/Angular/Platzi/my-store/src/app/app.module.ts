@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from  '@angular/forms'
+import { FormsModule } from  '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppWebComponent } from './app-web/app-web.component';
 import { ImgComponent } from './componets/img/img.component';
 import { ProductComponent } from './componets/product/product.component';
 import { ProductsComponent } from './componets/products/products.component';
@@ -16,7 +16,6 @@ import { ReversePipe } from './pipes/reverse.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    AppWebComponent,
     ImgComponent,
     ProductComponent,
     ProductsComponent,
@@ -29,6 +28,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
 
   ],
   providers: [],
