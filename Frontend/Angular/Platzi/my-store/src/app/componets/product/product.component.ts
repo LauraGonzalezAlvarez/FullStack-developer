@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Product } from '../../models/product.model';
+import { Product } from '../../models/product.model';// Importo la interface Product
 
 @Component({
   selector: 'app-product',
@@ -9,7 +9,7 @@ import { Product } from '../../models/product.model';
 })
 export class ProductComponent {
 
-  @Input() product: Product = {
+  @Input() product: Product = { // Para comunicar un array del padre al hijo
     id: '',
     price: 0,
     image: '',
@@ -17,7 +17,7 @@ export class ProductComponent {
     category: '',
     description: ''
   };
-  @Output() addedProduct = new EventEmitter<Product>();
+  @Output() addedProduct = new EventEmitter<Product>();// La envio un arreglo de productos al componente padre
 
   constructor() { }
 

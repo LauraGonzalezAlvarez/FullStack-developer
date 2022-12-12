@@ -1,5 +1,6 @@
 <app-img [img]="product.image"></app-img>
-<h2>{{ product.price | currency:'COP' }}</h2>
-<p>{{ product.title | reverse }}</p>
-<p appHighlight>{{ product.description }}</p>
+<h2>{{ product.price | currency:'COP' }}</h2> <!-- estamos mostrando el precio con un estilo de moneda gracias a un pipe  -->
+
+<p>{{ product.title | reverse }}</p><!-- El titulo lo está mostrando al revés gracias a un pipe  -->
+<p appHighlight>{{ product.description }}</p> <!-- appHighlight es una directiva que me permite modificar el DOM   -->
 <button (click)="onAddToCart()">Add cart</button>

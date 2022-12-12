@@ -8,17 +8,17 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
 })
 export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
 
-  img: string = '';
+  img: string = ''; 
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input('img')
-  set changeImg(newImg: string) {
+  @Input('img')// el decorador permite cambiar información desde el padre hacia el hijo
+  set changeImg(newImg: string) { //setter para asegurarse de que va a enviar siempre un string
     this.img = newImg;
-    console.log('change just img  =>' ,this.img);
+    console.log('change just img  =>' ,this.img);// imprime en la consola la imagen
     // code
   }
   @Input() alt: string = '';
-  @Output() loaded = new EventEmitter<string>();
+  @Output() loaded = new EventEmitter<string>();// permite enviar info del hijo al padre declarando un eventEmitter
   imageDefault = './assets/images/default.png';
   // counter = 0;
   // counterFn: number | undefined;
@@ -67,7 +67,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
 
   imgLoaded() {
     console.log('log hijo');
-    this.loaded.emit(this.img);
+    this.loaded.emit(this.img);// muestra la imagen
   }
 
 }
