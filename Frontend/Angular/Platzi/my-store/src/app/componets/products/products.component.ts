@@ -12,17 +12,17 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  myShoppingCart: Product[] = [];
-  total = 0;
+  myShoppingCart: Product[] = []; //Array de producto, inicializado en vacio para almacenar los productos agregados al carrito
+  total = 0; // Variable que almacena el precio de los productos agregados al carrito
   products: Product[] = [];
-  today = new Date(2019, 1,1);
-  date = new Date(2021, 1, 21)
+  today = new Date(2019, 1,1); // Variable que almacena fecha
+  date = new Date(2021, 1, 21) // Variable que almacea fecha
 
   constructor(
-    private storeService: StoreService,
-    private productsService: ProductsService
+    private storeService: StoreService, // Servicio 
+    private productsService: ProductsService // Servicio
   ) {
-    this.myShoppingCart = this.storeService.getShoppingCart();
+    this.myShoppingCart = this.storeService.getShoppingCart(); // Variable myShoppingCart tiene los productos que agregué al carrito
   }
 
   ngOnInit(): void {
