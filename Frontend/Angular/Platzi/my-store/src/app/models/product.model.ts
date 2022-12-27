@@ -1,4 +1,4 @@
-export interface Product {
+export interface Product {// Interface producto que define la estructura del objeto  y el tipado 
     id: string;
     title: string;
     price: number;
