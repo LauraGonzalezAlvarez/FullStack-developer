@@ -1,4 +1,12 @@
+<!-- <h1>{{ img2 }}</h1>  Renderiza información del padre que es app.component-->
+<!-- <img width="200" [src]="img2" *ngIf="img2"; else elseImg> Renderiza la imagen de forma dinamica-->
+<!-- <ng-template #elseImg> Sino tiene imagen muestra una por defecto--> 
+  <!-- <img src="./assets/images/album.jpg" alt=""> -->
+<!-- </ng-template> -->
+
 <img (load)="imgLoaded()" (error)="imgError()" [src]="img" *ngIf="img; else elseImg">
+<!-- (error) Evento que indica que la imagen cargó mal -->
+<!-- (load) Evento que inidica que la imagen cargó bien -->
 <!-- <h3>{{ counter }}</h3> -->
 <ng-template #elseImg>
   <img [src]="imageDefault" alt="">

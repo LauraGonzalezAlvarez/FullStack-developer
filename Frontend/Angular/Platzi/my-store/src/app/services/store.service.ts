@@ -5,7 +5,7 @@ import { Product } from '../models/product.model'; // Se importa la interface pr
 
 @Injectable({
   // Decorador que indica que es un servicio
-  providedIn: 'root', //Viene por defecto
+  providedIn: 'root', // 'root' que determina el scope del servicio, o sea, determina que el mismo estará disponible en toda el módulo de tu aplicación por default.
 })
 export class StoreService {
   //Aquí agrego la lógica del servicio
@@ -18,12 +18,13 @@ export class StoreService {
   myCart$ = this.myCart.asObservable();
   // La presencia del símbolo $ al final del nombre de la variable suele indicar que esta variable es un "observable", que es un tipo de objeto que se utiliza para notificar a otros componentes o módulos de cambios en una aplicación.
   // . El método asObservable es un método que se encuentra en la librería de observables de JavaScript, y convierte un objeto en un observable.
+  // Observable = Escuchar activamente cambios
   constructor() {} //constructor vacio
 
   addProduct(product: Product) {
     // Método addProduct para agregar al carrito de compras de tipado Product
-    this.myShoppingCart.push(product); //Apila en el arreglo myShopingCart los productos
-    this.myCart.next(this.myShoppingCart);
+    this.myShoppingCart.push(product); // Agregamos un producto a la lista
+    this.myCart.next(this.myShoppingCart); // con .next transmitimos la lista de productos a los suscriptores, nav component es el que se suscribe
     // this.myCart es un objeto que está siendo referenciado usando la palabra clave this. La palabra clave this hace referencia al objeto que está siendo usado en el contexto actual.
     // next es un método que se encuentra en la librería de observables de JavaScript. Este método se utiliza para enviar un nuevo valor a los componentes o módulos que se hayan suscrito a un observable.
     //  this.myShoppingCart es una variable que contiene el valor que se está enviando a los componentes o módulos suscritos al observable.

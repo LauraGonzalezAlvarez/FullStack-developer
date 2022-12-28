@@ -16,10 +16,14 @@
   <p>
     {{ 'hOLA BasCVASas asASA' | uppercase }}
   </p>
-  <div class="products--grid">
+  <div class="products--grid"> 
+    <!-- (addedProduct) Propiedad del hijo, Quiero escuchar de cada producto cuando sea agregado (Soy componente padre), product.component es el hijo de allí selecciono los productos  -->
+    <!-- onAddToShoppingCart($event) evento del padre -->
+    <!-- El evento lo capturamos con $event -->
+    <!-- Según OpenAi= "onAddToShoppingCart"  se activa cuando se produce el evento "addedProduct". -->
     <app-product
       [product]="product"
       *ngFor="let product of products"
-      (addedProduct)="onAddToShoppingCart($event)"
+      (addedProduct)="onAddToShoppingCart($event)"      
     ></app-product>
   </div>

@@ -5,6 +5,8 @@ import { Product } from '../../models/product.model';
 import { StoreService } from '../../services/store.service';
 import { ProductsService } from '../../services/products.service';
 
+// Este es un componente padre 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -32,7 +34,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  onAddToShoppingCart(product: Product) {
+  onAddToShoppingCart(product: Product) { // Recibimos el producto 
     this.storeService.addProduct(product);
     this.total = this.storeService.getTotal();
   }

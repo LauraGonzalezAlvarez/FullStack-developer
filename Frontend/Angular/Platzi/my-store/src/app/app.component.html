@@ -1,9 +1,15 @@
 <app-nav></app-nav>
 <app-product></app-product>
 <app-products></app-products>
-<!-- <p><input type="text" [(ngModel)]="imgParent" /></p>
+<!-- <app-img img2="Este valor viene del componente padre"></app-img> Ejemplo para comunicar info del padre al hijo  -->
+<!-- <p><input type="text" [(ngModel)]="imgParent" /></p> 
+ <app-img [img2]="imgParent"></app-img> // Lo que se escriba y se lea en imgParent se enviará a la variable img2 que está declarado en img.component el cual es un hijo
+
 <button (click)="toggleImg()">Toggle Img</button>
 <p>{{ showImg}}</p>
+
 <app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
+(loaded) es un evento que creamos en el hijo img.component para comunicarlo con su padre
+onLoaded($event) Ve y activa este evento en el padre app.component, recibimos la información por medio de $event
 <hr/> -->
 

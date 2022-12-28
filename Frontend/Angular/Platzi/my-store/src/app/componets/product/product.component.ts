@@ -9,6 +9,8 @@ import { Product } from '../../models/product.model';// Importo la interface Pro
 })
 export class ProductComponent {
 
+// Este componente es hijo, products es el componente padre
+
   @Input() product: Product = { // Para comunicar un array del padre al hijo
     id: '',
     price: 0,
@@ -17,11 +19,11 @@ export class ProductComponent {
     category: '',
     description: ''
   };
-  @Output() addedProduct = new EventEmitter<Product>();// La envio un arreglo de productos al componente padre
+  @Output() addedProduct = new EventEmitter<Product>();// La envio un objeto de productos al componente padre
 
   constructor() { }
 
-  onAddToCart() {
+  onAddToCart() { // Este método representa la acción para emitir el producto
     this.addedProduct.emit(this.product);
   }
 

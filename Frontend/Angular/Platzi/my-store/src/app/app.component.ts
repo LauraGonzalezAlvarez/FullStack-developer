@@ -8,12 +8,12 @@ import { Product } from './models/product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  imgParent = '';
+  imgParent = ''; // Variable que se utiliza para comunicar el padre con el hijo
   showImg = true;
 
 
-  onLoaded(img: string) {
-    console.log('log padre', img);
+  onLoaded(img: string) { // Este evento se crea para para el uso de Output, se utiliza en app.component, recibe una imagen de tipo string
+    console.log('log padre', img);// Imprime la imagen y log padre
   }
 
   toggleImg() {

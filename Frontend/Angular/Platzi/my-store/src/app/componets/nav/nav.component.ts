@@ -13,16 +13,16 @@ export class NavComponent implements OnInit {
   counter = 0;
 
   constructor(
-    private storeService: StoreService
+    private storeService: StoreService // Inyectamos el servicio SoreService gracias al patron de inyección de dependencias
   ) { }
 
   ngOnInit(): void {
-    this.storeService.myCart$.subscribe(products => { //myCart$ es un observable
-      this.counter = products.length;
+    this.storeService.myCart$.subscribe(products => { //myCart$ es un observable,  .subcribe significa que me suscribo para que me notifique cada vez que cambie (Se creó en Store.service)
+      this.counter = products.length; // Cada vez que se agrega un elemento a la lista lo actualizamos el counter, en la vista lo renderizo
     });
   }
 
-  toggleMenu() {
+  toggleMenu() { // Metodo para mostrar y ocultar el menú 
     this.activeMenu = !this.activeMenu;
   }
 
