@@ -1,4 +1,4 @@
-# FullStack-developer
+# FullStack-developer.
 
 ## Contenido:
 
