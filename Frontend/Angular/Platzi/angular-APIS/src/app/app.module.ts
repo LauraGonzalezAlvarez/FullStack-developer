@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SwiperModule } from 'swiper/angular';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; //HttpClientModule Paquete para hacer peticiones
+import { SwiperModule } from 'swiper/angular'; // Libreria para el efecto de las imagenes
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

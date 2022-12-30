@@ -11,17 +11,17 @@ export class ProductComponent {
 
   @Input() product: Product = {
     id: '',
-    price: 0,
+    price: 0, // Es muy importante siempre dar un estado inicial para evitar errores 
     images: [],
     title: '',
-    category: {
+    category: { // Objeto category
       id: '',
       name: '',
     },
     description: ''
   };
   @Output() addedProduct = new EventEmitter<Product>();
-  @Output() showProduct = new EventEmitter<string>();
+  @Output() showProduct = new EventEmitter<string>(); // showProduct Para comunicarlo con el padre
 
   constructor() { }
 
@@ -29,8 +29,8 @@ export class ProductComponent {
     this.addedProduct.emit(this.product);
   }
 
-  onShowDetail() {
-    this.showProduct.emit(this.product.id);
+  onShowDetail() { // Una vez leido este evento se lo comunicamos al padre
+    this.showProduct.emit(this.product.id); // Envia solo el id del producto al cual hicimos click, a su padre products
   }
 
 }
