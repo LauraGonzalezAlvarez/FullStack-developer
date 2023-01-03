@@ -26,8 +26,8 @@ export class ProductsService {
       params = params.set('offset', limit); // Igual para este, el offset se va cambiando a medida que cambia el limit
     } // Si envio los parametros vamos a ir seteando dinámicamente estos parametros desde la URL, Esta es la forma de hacerlo dinámico con HttpParams
     return this.http.get<Product[]>(this.apiUrl, { params, context: checkTime() }) // enviamos los params 
-    .pipe(
-      retry(3),
+    .pipe( // Con Angular podemos hacer la funcionalidad de reintentar varias veces la petición, le digo que quiero hacer una transformación 
+      retry(3), // Me dice cuantas veces puedo reitenrtar la petición, con promesas seria muy complejo de hacer
       map(products => products.map(item => {
         return {
           ...item,
