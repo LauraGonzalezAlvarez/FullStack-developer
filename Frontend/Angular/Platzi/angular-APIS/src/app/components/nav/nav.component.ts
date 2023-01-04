@@ -13,9 +13,9 @@ export class NavComponent implements OnInit {
 
   activeMenu = false;
   counter = 0;
-  profile: User | null = null;
+  profile: User | null = null; //El perfil puede ser de tipo user y que permito que inice en null
 
-  constructor(
+  constructor( // Se inyectan los servicios 
     private storeService: StoreService,
     private authService: AuthService,
   ) { }
@@ -31,11 +31,11 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-    // this.authService.login('sebas@mail.com', '1212')
+    // this.authService.login('sebas@mail.com', '1212') 
     // .subscribe(rta => {
     //   this.token = rta.access_token;
-    //   console.log(this.token);
-    //   this.getProfile();
+    //   console.log(this.token); // Cuando obtengo el token hago el get profile
+    //   this.getProfile(); // Aquí habia una mala practica de callback hell, algo que se está corriendo dentro de un otro subscribe
     // });
     this.authService.loginAndGet('sebas@mail.com', '1212')
     .subscribe(user => {

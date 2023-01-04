@@ -1,5 +1,5 @@
 <button (click)="createNewProduct()">create</button>
-<button (click)="onShowDetail('121212')">detalle not found</button>
+<button (click)="onShowDetail('121212')">detalle not found</button><!-- Para probar el manejo de errores, se le envia un id que no existe -->
 
 <div class="products--grid">   <!-- Tenemos un ngFor en donde utilizamos gracias a los componentes un componente especializado para rendereizar el producto por input y output, el input nos envia el producto (product.component ) -->
   <app-product
@@ -15,7 +15,7 @@
 <div class="product-detail" [class.active]="showProductDetail">  
   <!-- [class.active]="showProductDetail Es una clase dinámica para mostrar y ocultar el detalle de los productos cada vez que hagamos click -->
   <!-- Esta clase es para ver el detalle del producto, haciendo la petición a la API mostrando unicamente ese producto en un costado de la pantalla  -->
-  {{ statusDetail }}
+  {{ statusDetail }}    <!-- Esta variable es para probar el manejo de errores -->
   <div *ngIf="productChosen"> 
     <!-- *ngIf="productChosen"  Es para que no se renderice el detalle del producto hasta que no se haga la petición a la API -->
     <button (click)="toggleProductDetail()">Close</button> <!-- Este boton es para cerrar el detalle del producto -->

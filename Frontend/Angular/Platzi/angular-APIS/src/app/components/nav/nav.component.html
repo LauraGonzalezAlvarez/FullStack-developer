@@ -37,8 +37,8 @@
     </nav>
     <div class="info">
       <div class="account">
-        <button *ngIf="!profile; else elseBlock" (click)="login()">Login</button>
-        <ng-template #elseBlock>{{ profile?.email }}</ng-template>
+        <button *ngIf="!profile; else elseBlock" (click)="login()">Login</button> <!-- Si no hay usuario logueado, muestra el boton de login -->
+        <ng-template #elseBlock>{{ profile?.email }}</ng-template>   <!-- Muestra el email del usuario en el navegador de manera dinamica-->
       </div>
       <div class="cart">
         <a href="">

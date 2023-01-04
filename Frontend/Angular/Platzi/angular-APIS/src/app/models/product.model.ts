@@ -11,7 +11,7 @@ export interface Product {
   images: string[]; // Porque es un array de imagenes
   description: string;
   category: Category;
-  taxes?: number;
+  taxes?: number; // Atributo que no es enviado desde el backend sino que va a ser calculado en el frontend, ejercicio para la transformacion de peticiones 
 }
 
 // Extendemos de la interface Product, omitiendo el id y la category, omit es propio de typescript

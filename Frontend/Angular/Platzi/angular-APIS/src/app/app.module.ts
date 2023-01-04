@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; //HttpClientModule Paquete para hacer peticiones
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; //HttpClientModule Paquete para hacer peticiones, HTTP_INTERCEPTORS para importar los interceptors que se debe hacer de forma manual
 import { SwiperModule } from 'swiper/angular'; // Libreria para el efecto de las imagenes
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,8 +35,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     SwiperModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TimeInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TimeInterceptor, multi: true }, // Para importar los interceptors provide de tipo tal, y de la clase tal, no explixo multi
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, // 
   ],
   bootstrap: [AppComponent]
 })

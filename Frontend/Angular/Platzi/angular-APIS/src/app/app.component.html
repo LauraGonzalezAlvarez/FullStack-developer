@@ -1,14 +1,17 @@
 <app-nav></app-nav>
-<button (click)="createUser()">Create user</button>
+<button (click)="createUser()">Create user</button> <!-- Boton para crear usuario -->
 <p>
-  <a href="./assets/files/texto.txt" download>Descargar</a>
+  <a href="./assets/files/texto.txt" download>Descargar</a> 
+  <!-- Boton que genera la descarga del archivo que encuentra en esa direccion, gracias a una propiedad del html lo podemos descargar  -->
 </p>
 <p>
   <button (click)="downloadPdf()">Descargar PDF</button>
 </p>
 <p>
-  <input type="file" (change)="onUpload($event)">
-  <img *ngIf="imgRta" [src]="imgRta">
+  <input type="file" (change)="onUpload($event)"> 
+  <!-- Lee el evento onUpload para subir un archivo y le enviamos nuestro evento  -->
+  <img *ngIf="imgRta" [src]="imgRta"> 
+  <!-- Si imgRta existe, muestra la imagen en el navegador -->
 </p>
 <hr />
 <app-products></app-products>

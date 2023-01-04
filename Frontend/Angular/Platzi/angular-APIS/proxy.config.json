@@ -1,8 +1,17 @@
+// A continuación se crea un proxy para poder hacer petición desde un origen diferente y 
+// evitar problemas de CORS 
+
+// Se habilita un proxy como lo que hace postman o insomnia para que cada vez que enviemos
+//  una petición sea como si lo estuvieramos enviando desde el mismo origen, esto solo funciona 
+//  para desarrollo, para producción el backend deberia habilitar los dominios o las direcciones 
+//  donde vamos a alojar el sistema. 
+
 {
-  "/api/*": {
-    "target": "https://young-sands-07814.herokuapp.com",
-    "secure": true,
-    "logLevel": "debug",
-    "changeOrigin": true
+  
+  "/api/*": { // Culquier petición de ahí en adelante, aplique estas reglas 
+    "target": "https://young-sands-07814.herokuapp.com", // a donde queremos que vaya o cual seria el intercambio
+    "secure": true, // Dominio seguro, si
+    "logLevel": "debug", // 
+    "changeOrigin": true // Cambia el origen, si 
   }
 }

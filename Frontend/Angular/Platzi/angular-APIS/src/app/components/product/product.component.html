@@ -1,8 +1,8 @@
 <app-img *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img> 
 <!-- Con este componente estamos renderizando las imagenes  -->
 <!-- product.images.length > 0  para que no vaya a renderizar una imagen en una posicion cero ya que no hay -->
-<h2>{{ product.price | currency:'COP' }}</h2>
+<h2>{{ product.price | currency:'COP' }}</h2> <!--  Con el pipe currency le decimos que se muestre en pesos colombianos -->
 <p>{{ product.title }}</p>
-<p>{{ product?.taxes | currency:'COP'}}</p>
+<p>{{ product?.taxes | currency:'COP'}}</p> <!--  Con el signo de interrogación le decimos que si no hay taxes no se renderice y cubrirnos en salud tambien se podría hacer un *NgIf-->
 <button (click)="onShowDetail()">Ver detalle</button> <!-- Este evento envia al padre el id del producto -->
 <button (click)="onAddToCart()">Add cart</button>

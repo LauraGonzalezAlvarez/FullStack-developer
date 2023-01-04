@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
-import { retry, catchError, map } from 'rxjs/operators';
-import { throwError, zip } from 'rxjs';
+import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode } from '@angular/common/http'; // Interface HttpStatusCode Para manejar los tipados de errores, sin necesidad de aprendermelos como 404,...  
+import { retry, catchError, map } from 'rxjs/operators'; // catchError de acuerdo a las operaciones que tengamos captura el error
+//map  Permite evaluar todos los valores que lleguen en el observable para poder aplicar una transformacion 
+import { throwError, zip } from 'rxjs'; // Para devolver un error 
 
 import { Product, CreateProductDTO, UpdateProductDTO } from './../models/product.model';
 import { checkTime } from './../interceptors/time.interceptor';
-import { environment } from './../../environments/environment';
+import { environment } from './../../environments/environment'; // importa la carpeta de ambientes
+//La carpeta general, angular se encarga de que si estamos en modo producción se habilite esa y si estamos en modo de desarrollo se habilite
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
+  // Variable de ambiente mediante un stringInterpolation concatena la URL 
+  // Si estamos en desarrollo la API_URL vien en vacio porque utilizariamos nuestro proxy
+  // Si estamos en produccion la url seria 'https://young-sands-07814.herokuapp.com',
   private apiUrl = `${environment.API_URL}/api/products`;
     //  apiUrl Almacena la url del api
-
   constructor(
     private http: HttpClient
   ) { }
@@ -25,19 +29,22 @@ export class ProductsService {
       params = params.set('limit', limit); // Quiero un parametro que sea limit y que tenga el valor de limit
       params = params.set('offset', limit); // Igual para este, el offset se va cambiando a medida que cambia el limit
     } // Si envio los parametros vamos a ir seteando dinámicamente estos parametros desde la URL, Esta es la forma de hacerlo dinámico con HttpParams
-    return this.http.get<Product[]>(this.apiUrl, { params, context: checkTime() }) // enviamos los params 
+    return this.http.get<Product[]>(this.apiUrl, { params, context: checkTime() }) // enviamos los params, context: checkTime() cada vez que queramos que alguna petición sea evaluado por el time interceptor tendriamos que enviarle esta funcion, solo tendriamos el tiempo de respuesta de esta petición y no para todas 
     .pipe( // Con Angular podemos hacer la funcionalidad de reintentar varias veces la petición, le digo que quiero hacer una transformación 
       retry(3), // Me dice cuantas veces puedo reitenrtar la petición, con promesas seria muy complejo de hacer
-      map(products => products.map(item => {
-        return {
+      //map  Permite evaluar todos los valores que lleguen en el observable para poder aplicar una transformacion 
+      map(products => products.map(item => { // map para transformar los valores que llegan en el obserbable 
+               // products la data que nos estan enviando, products.map(item => {  natino de JS para hacer la transformacion
+              return {
           ...item,
-          taxes: .19 * item.price
+          taxes: .19 * item.price // Acá estaríamos agregando esta información qu no viene desde el backend
         }
       }))
     );
   }
 
-  fetchReadAndUpdate(id: string, dto: UpdateProductDTO) {
+  fetchReadAndUpdate(id: string, dto: UpdateProductDTO) { // Este metodo es ejemplo para retornar dos peticiones en paralelo, los contrario a switchmap 
+   // Recibe el id para hacer la obtención y el dto: UpdateProductDTO para los cambios porque tambien se va a hacer una actualización 
     return zip(
       this.getProduct(id),
       this.update(id, dto)
@@ -46,18 +53,20 @@ export class ProductsService {
   // tiene siempre un return porque el objetivo es que en el componente hacer un suscribe para luego obtener la informacion
   getProduct(id: string) { // Para obtener solo un producto enviado el id
     return this.http.get<Product>(`${this.apiUrl}/${id}`) // `${this.apiUrl}/${id}` a apiUrl le estamos concatenando el id que nos llegue del producto para hacer la petición GET 
-    .pipe(
+    .pipe( // HttpErrorResponse es un tipado especifica para los errores que maneja Angular
+      // Manejo de errores desde el servicio, si se envia un id que no existe saber manejar el error 
       catchError((error: HttpErrorResponse) => {
-        if (error.status === HttpStatusCode.Conflict) {
+        // HttpStatusCode me permite traer los codigos sin tener que aprendermelos 
+        if (error.status === HttpStatusCode.Conflict) { // Si el estatus es 409
           return throwError('Algo esta fallando en el server');
         }
-        if (error.status === HttpStatusCode.NotFound) {
+        if (error.status === HttpStatusCode.NotFound) { // Si el status es 404
           return throwError('El producto no existe');
         }
-        if (error.status === HttpStatusCode.Unauthorized) {
+        if (error.status === HttpStatusCode.Unauthorized) { // Si el usuario no está autorizado 
           return throwError('No estas permitido');
         }
-        return throwError('Ups algo salio mal');
+        return throwError('Ups algo salio mal'); //Para devolver un error que ya es personalizado por nosotros, para enviar un error desde el servicio, seria el mensaje de error por defecto
       })
     )
   }

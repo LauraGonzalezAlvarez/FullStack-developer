@@ -3,6 +3,6 @@ export interface User {
   email: string;
   password: string;
   name: string;
-}
+} // Tipado para los usuarios 
 
-export interface CreateUserDTO extends Omit<User, 'id'> {}
+export interface CreateUserDTO extends Omit<User, 'id'> {} // Al momento de crear un usuario no será necesario enviar el id sino que este lo crea automaticamente

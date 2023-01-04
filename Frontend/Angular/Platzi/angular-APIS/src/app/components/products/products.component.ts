@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { zip } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { zip } from 'rxjs'; // zip nos permite enviar, adjuntar, comprimir dos observadores y recibir la respuesta de los dos al tiempo
+import { switchMap } from 'rxjs/operators'; // switchMap permite hacer lo mismo que hariamos con el .then el las promesas para no concatenar un proceso dentro del otro y que se vuelva un callbackhell
 
 import { Product, CreateProductDTO, UpdateProductDTO } from '../../models/product.model';
 
@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
 
   limit = 10; // Para la paginación, muestra 10 elementos
   offset = 0; // Para la paginación, a partir de qué posición se muestra 
-  statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
+  statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init'; //Para el manejo de errores, asigna unos valores posibles y un estado inicial INIT
 
   constructor(
     private storeService: StoreService, // Inyección de dependencias, acá nos estamos trayendo los dos servicios
@@ -60,29 +60,35 @@ export class ProductsComponent implements OnInit {
   }
 
   onShowDetail(id: string) {
-    this.statusDetail = 'loading';
-    this.toggleProductDetail(); // Cuando recibamos la información accionar este metodo 
+    this.statusDetail = 'loading'; // Apenas haga la petición tenga un estado en loading 
+    this.toggleProductDetail(); // Cuando recibamos la información accionar este metodo, independiente de si fue exitoso o no, si solo se quiero activar siempre y cuando sea exitoso se pondría debajo de .subscribe(data => { 
     this.productsService.getProduct(id) // Utilizando el servicio vamos hacia getProduct mandandole el identificador del producto
     .subscribe(data => { // Nos suscribimos y obtendriamos la data
       this.productChosen = data; // productChosen quí guardamos el producto seleccionado
-      this.statusDetail = 'success';
-    }, errorMsg => {
-      window.alert(errorMsg);
-      this.statusDetail = 'error';
+      this.statusDetail = 'success'; // Si todo salio exitosamente asigna un estado success
+    }, errorMsg => { 
+      window.alert(errorMsg); // Para mostrar los errores del backend
+      this.statusDetail = 'error'; // Pero si algo ocurrio mostrariamos un estado de error
+      // Estamos traduciendo los errores que estan en el backend, manipulados por el servicio 
     })
   }
 
-  readAndUpdate(id: string) {
-    this.productsService.getProduct(id)
-    .pipe(
+  readAndUpdate(id: string) { //Ejemplo de como ejecutar un request tras el otro en el caso de ser necesario
+    this.productsService.getProduct(id) //Obtenemos el id del producto desde el servicio
+    .pipe( //Pipe para utilizar un switchMap
       switchMap((product) => this.productsService.update(product.id, {title: 'change'})),
-    )
+    )// Tenemos un product que retorna esta peticion this.productsService.update(...
+    //Puedo llenar esto de switchMap donde la respuesta de una me va a dar la respuesta de otra
+    // Esta sería la forma de hacerlo con promesas 
+    // Esto se hace solo si tengo dependencias cuando necesito de un dato anterior para hacer una peticion nueva 
     .subscribe(data => {
       console.log(data);
     });
-    this.productsService.fetchReadAndUpdate(id, {title: 'change'})
+    // Ejemplo de si no tenemos dependencias y queremos correr varias promesas al mismo tiempo 
+    this.productsService.fetchReadAndUpdate(id, {title: 'change'}) // fetchReadAndUpdate método en el servicio que realiza un zip para enviar peticiones al mismo tiempo, la abstracción o la logica lo tenemos contentrado en el servicio
+    // No es bueno poner la logia en el componente sino en el servicio para poderlo reutilizar
     .subscribe(response => {
-      const read = response[0];
+      const read = response[0]; // 
       const update = response[1];
     })
   }

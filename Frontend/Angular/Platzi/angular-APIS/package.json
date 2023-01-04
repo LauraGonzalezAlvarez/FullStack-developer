@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:proxy": "ng serve --proxy-config ./proxy.config.json",
+    "start:proxy": "ng serve --proxy-config ./proxy.config.json", // Se crea esta tarea para ejecutar el nuevo proxy
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
