@@ -21,6 +21,7 @@ const saludarFlecha = () =>{ // Función flecha,
 
 }
 
+
 saludarFlecha();
 
 const saludarFlecha2 =  (nombre)  =>{ // Función flecha  con parametro, los parenteis son opcionales, pero es buena practica dejarlos 
