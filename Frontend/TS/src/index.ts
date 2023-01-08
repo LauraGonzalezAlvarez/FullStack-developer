@@ -15,7 +15,7 @@ console.log(`¿Cómo han ido las vacaciones, ${nombre} ?`);
 let email = "martin@imaginagroup.com" // Variable ámbio local, orientado a crear variables dentro de funciones 
 console.log(`el email de ${nombre} es ${email}`)
 
-const PI: number =3.1416; // Es una constante no puede reasignar el valor, asignamos valores a un espacio en concreto pero no pueden ser modificados
+const PI: number = 3.1416; // Es una constante no puede reasignar el valor, asignamos valores a un espacio en concreto pero no pueden ser modificados
 
 // En TS tenemos tipado debil, fuerto e inferido
 // Js es de tipado inferido por eso el tipo de las variables puede cambiar dinamicamente 
@@ -25,7 +25,7 @@ const PI: number =3.1416; // Es una constante no puede reasignar el valor, asign
 // Si tipamos una variable ya no podrá cambiar su tipo
 var nombre2: string = "Martín";
 
-var apellidos:any = "San José"; // Tipo any hace que la variable pueda cambiar de tipo, pero no es recomendable
+var apellidos: any = "San José"; // Tipo any hace que la variable pueda cambiar de tipo, pero no es recomendable
 apellidos = 3;
 
 var error: boolean;
@@ -35,7 +35,7 @@ console.log(`¿Hay error?: ${error}`);
 
 //Instanciación múltiple de variables
 
-let a:string, b:boolean, c:number; // Instancia 3 variables sin valor inicial
+let a: string, b: boolean, c: number; // Instancia 3 variables sin valor inicial
 a = "TypesCript";
 b = true;
 c = 8.9;
@@ -61,16 +61,16 @@ enum Estados {
 let estadoTarea: Estados = Estados.Pendiente;
 
 // Dentro del estadar de código limpio es muy importante saber que esperar tipand
-enum PuestoCarrera{
+enum PuestoCarrera {
     "Primero" = 1,
     "Segundo",
     "Tercero"
 }
-let puestoMaraton:PuestoCarrera = PuestoCarrera.Segundo;
+let puestoMaraton: PuestoCarrera = PuestoCarrera.Segundo;
 
 
 // Interfaces
-interface Tarea{
+interface Tarea {
     nombre: string,
     estado: Estados,
     urgencia: number
@@ -105,10 +105,10 @@ let miUrgencia = miTarea.urgencia;
 
 
 // Declaración con factor de propagación (Spred)
-let {titulo, estado, urgencia} = miTarea;
+let { titulo, estado, urgencia } = miTarea;
 
 // En listas
-let listaCompraLunes: string[] =[] = ["Leche", "Patatas"]
+let listaCompraLunes: string[] = [] = ["Leche", "Patatas"]
 let listaCompraMartes: string[] = [...listaCompraLunes, "Pan", "Huevos"]; // coge todos los valores de la lista de la compra del lunes y además le añade pan y huevos
 let listaCompraMiercoles: string[] = ["Carne", "Pescado"]
 let listaCompraSemana = [...listaCompraLunes, ...listaCompraMiercoles]
@@ -131,7 +131,7 @@ let nuesvoEstado = { // Lo que hacemos es que sobre escribe
 
 let coche: Producto = {
     nombre: "Audi",
-    precio: 45000, 
+    precio: 45000,
     anio: 2010
 }
 
@@ -143,7 +143,7 @@ let coche: Producto = {
 console.log(coche.anio < 2010 ? `Coche: ${coche.nombre} es viejo` : `Coche: ${coche.nombre} es nuevo`);
 
 // If -else if -else
-if (error == false){ // Esto no se maneja así sino como está abajo, queda mas profesional
+if (error == false) { // Esto no se maneja así sino como está abajo, queda mas profesional
     console.log("Hola");
 }
 
@@ -151,32 +151,32 @@ if (error == false){ // Esto no se maneja así sino como está abajo, queda mas 
 // Mientras que si no serán verdadero 
 
 // If -else if -else
-if(error){
+if (error) {
     console.log("Hay un error");
 } else {
     console.log("No hay un error");
 }
 
 // If -else if -else
-if(coche.anio < 2010){
+if (coche.anio < 2010) {
     console.log(`Coche: ${coche.nombre} es viejo`)
-}else if (coche.anio === 2010){
+} else if (coche.anio === 2010) {
     console.log(`Coche: ${coche.nombre} es 2010`)
-}else {
+} else {
     `Coche: ${coche.nombre} es nuevo`
 }
 
 // Switch
-switch (tarea1.estado){
+switch (tarea1.estado) {
     case Estados.Completado:
         console.log("Estado Completado");
-                break;
+        break;
     case Estados.Incompleto:
         console.log("Estado Incompleto");
-                break;
+        break;
     case Estados.Pendiente:
         console.log("Estado Pendiente");
-                break;
+        break;
     default:
         break;
 
@@ -206,33 +206,262 @@ let listaTareasNuevas: Tarea[] = [
 // For each para iterar en listas
 listaTareasNuevas.forEach(
     (tarea: Tarea, index: number) => {
-        console.log(` ${index}- ${tarea.nombre}`);        
+        console.log(` ${index}- ${tarea.nombre}`);
     }
- );
+);
 
- // For in para objetos, cadenas de texto
+// For in para objetos, cadenas de texto
 for (const key in listaTareasNuevas) {
     if (Object.prototype.hasOwnProperty.call(listaTareasNuevas, key)) {
         const element = listaTareasNuevas[key];
-        
+
     }
 }
 
 // while
 
- while (tarea1.estado !== Estados.Completado) {
-     tarea1.urgencia ++;
-     if(tarea1.urgencia == 5){
+while (tarea1.estado !== Estados.Completado) {
+    tarea1.urgencia++;
+    if (tarea1.urgencia == 5) {
         tarea1.estado = Estados.Completado
         break;
-     }else{
-        tarea1.urgencia ++;
-     }
- }
+    } else {
+        tarea1.urgencia++;
+    }
+}
 
- // Do while, se ejecuta al menos una vez
+// Do while, se ejecuta al menos una vez
 
- do {
-    tarea1.urgencia ++;
+do {
+    tarea1.urgencia++;
     tarea1.estado = Estados.Completado;
- } while (tarea1.estado !== Estados.Completado);
+} while (tarea1.estado !== Estados.Completado);
+
+//*********************************************************************************************** */
+// Funciones: Bloque de codigo reutilizable e incluso podemos hacerlo generico en caso de TS que pueda obtener cualquier tipo de parametro que haga
+// Algún tipo de ejecucción y que lo podamos reutilizar para obtener una respuesta en concreta 
+// El nombre de la funcion debe ser en minuscula camelcase(mayus inicial) o snakecase (guion bajo) anmbas se pueden utilizar
+/** */ //Para documentar
+
+/**
+ * Funcion que muestra saludo por consola
+ */
+function saludar() {
+    let nombre = "Martín"
+    console.log(`Hola ${nombre}`);
+}
+
+//Invocar la función
+saludar();
+
+/**
+ * Función que muestra un saludo a una persona por consola
+ * @param nombre Nombre de la persona a saludar
+ */
+function saludarPersona(nombre: string) {
+    console.log(`Hola ${nombre}`);
+}
+
+const persona = "Martín";
+saludarPersona(persona); // Paso por valor
+saludarPersona("Juan");
+
+function despedirPersona(nombre: string = "Pepe") { // Le asigno a la variable un valor por defecto 
+    console.log(`Adios ${nombre}`);
+}
+
+despedirPersona(); // Si no le paso nada, me va a tomar el valor por defecto
+despedirPersona("Juan"); // Si le paso un valor, me va a tomar el valor que le paso
+
+function despedidaOpcional(nombre?: string) {// Nombre es opcional, puede o no venir y es igual a la funcion de abajo
+    if (nombre) {
+        console.log(`Adios ${nombre}`);
+    }else{
+        console.log("Adios");
+    }
+}
+
+function despedidaOpcionalDos(nombre: string | undefined) { // nombre es opcional, puede o no venir y es igual a la funcion de arriba
+    if (nombre) {
+        console.log(`Adios ${nombre}`);
+    }else{
+        console.log("Adios");
+    }
+}
+
+despedidaOpcional(); // Si no le paso nada, me va a tomar el valor por defecto
+despedidaOpcional("Juanjo"); // Si le paso un valor, me va a tomar el valor que le paso
+
+
+function variosParametros(nombre: string, apellido?: string, edad: number = 18) {
+    if(apellido){
+    console.log(`Hola ${nombre} ${apellido}  tiene ${edad} años`);
+    }else{
+        console.log(`Hola ${nombre}  tiene ${edad} años`);
+    }
+}
+
+variosParametros("Martín", "Perez", 20); // Martín Perez tiene 20 años
+variosParametros("Martín", "Perez"); // Martín Perez tiene 18 años
+variosParametros("Martín"); // Martín tiene 18 años
+variosParametros("Martín", undefined, 20) // Martín tiene 20 años
+// variosParametros(nombre="Martín", apellido="Perez", edad=30); // Tambien se puede así, pero me marca error
+
+function ejemploVariosTipos(a: string | number) {
+    if (typeof a === "string") {
+        console.log("Es un string");
+    } else if (typeof a === "number") {
+        console.log("Es un numero");
+    }else {
+        console.log("Es otra cosa");
+        throw  Error("No es un string ni un numero");
+    }
+
+ejemploVariosTipos("Hola");
+ejemploVariosTipos(5);
+
+
+// Que retorna una funcion
+
+function ejemploReturn(nombre: string, apellido: string): string | number { // Significa que la funcion puede retornar un string o un numero
+    return 3;
+}
+const nombreCompleto = ejemploReturn("Martín", "Perez");
+console.log(nombreCompleto); // Marín Perez
+console.log(ejemploReturn("Martín", "San José")); // Marín Perez
+
+
+
+// Cuando no sabemos cuantos parametros vamos a recibir
+// Con los tres puntos le decimos que puede recibir cualquier cantidad de parametros
+function ejemploMultipleParams(...nombres: string []): void{ // void significa que no retorna nada
+    nombres.forEach((nombre) => {
+        console.log(nombre);
+    });
+}
+
+// Las listas y objetos se pasan por referencia
+
+ejemploMultipleParams("Martín", "Juan", "Pedro", "Alba");
+ejemploMultipleParams("Martín");
+
+
+
+
+// arrow function
+// Una interface  si va a definir no solo valores sino tambien funciones, las interfaces se deben implementar
+// Los tipos estan pensados para crear tipos a partir de otros tipos, crear variables de ese tipo, no se tiene que implementar
+
+type Empleado = {
+    nombre: string;
+    apellidos: string;
+    edad: number;
+}
+
+let empleadoMartín: Empleado = {
+    nombre: "Laura",
+    apellidos: "Gonzalez",
+    edad: 28
+}
+
+const mostrarEmpleado = (empleado: Empleado):string => `${empleado.nombre} tiene ${empleado.edad} años`; // :string devuelve un string
+
+//Llamamos a la función 
+mostrarEmpleado(empleadoMartín);
+
+const datosEmpleado = (empleado: Empleado):string => {
+    if(empleado.edad > 70){
+       return `Empleado ${empleado.nombre} está en edad de jubilación`
+    }else{  
+        return `Empleado ${empleado.nombre}  está en edad laboral`
+    }
+}
+
+datosEmpleado(empleadoMartín); // Empleado Martín está en edad laboral
+
+// Estamos definiendo una función anonima () => `cobrar` como parametro de la función obtenerSalario
+const obtenerSalario = (empleado: Empleado, cobrar: () => string)=> {
+    if(empleado.edad > 70){
+        return
+    }else{
+        cobrar(); // Callback a ejecutar
+    }
+}
+
+const cobrarEmpleado = (empleado: Empleado) => {
+    console.log(`Se ha cobrado al empleado ${empleado.nombre} su salario`);
+
+obtenerSalario(empleadoMartín, () => 'Cobrar Martín' ); // Se ha cobrado al empleado Martín su salario
+
+
+
+// Async Funtions: En algun momento que este tarea se lleve a cabo, las funciones asincronas lo unico que hacen es estar esperando para completar una tarea para seguir a la siguiente linea
+
+async function ejemploAsync(): Promise<void>{ //  Promise<void> que va a devolver una promesa 
+// Await: Si utilizamos esta palabra sin estar dentro de una funcion asincrona, nos va a marcar error
+    await console.log("Tarea pra completar antes de seguir con la secuencia de instrucciones ");
+}
+
+ejemploAsync() // Quiero ejecutar esta funcion ejemploAsync de forma asincrona
+.then((respuesta) => { // Voy a esperar a que se ejecute para eso tenemos lo await
+    console.log("Respuesta", respuesta);
+}).catch    (error => {
+    console.log("Error", error);
+}).finally(() => "Todo ha terminado")   
+
+//.then callback que se va a ejecutar cuando la promesa se resuelva
+//.catch para capturar los errores
+//.finally Si todo ha salido correctamente 
+
+// Funciones Generatoras: Pueden emitir nuevos valores y nosotros vamos a poder ir nutriendonos, el concepto de la funcion generadora
+// Es el mismo que los observables, que emiten valores yo los voy escuchando los voy recibiendo y los voy gestionando 
+
+function* ejemploGenerator(){
+
+    // Yield: Sirve para emitir un nuevo valor o ejecutar una funcion, las funciones asincronas lo unico que hacen es estar esperando para completar una tarea para seguir a la siguiente linea
+    // como un metodo de suscripcion
+    let index = 0;
+    while(index < 5){
+        //Emitimos un valor incrementado
+        yield index++;
+    }
+}
+
+// Guardamos la funcion generadora en una variable
+let generadora = ejemploGenerator();
+
+// Accedemos a los valroes emitidos
+console.log(generadora.next().value) // 0 con value estamos accediento al valor 
+console.log(generadora.next().value) // 1 
+console.log(generadora.next().value) // 2 
+console.log(generadora.next().value) // 3 
+console.log(generadora.next().value) // 4
+
+
+// Worker= se utiliza en Angular para gestionar el estado de la aplicacion, pongo a escuchar una funcion a determinado evento y entonces segun lo voy escuchando
+// pongo a trabajar a otras funciones asincronas hasta que termine
+// el watcher va a sesr el encargado de llamar al worker
+
+function* watcher(valor: number){
+
+    yield valor; // emitimos el valor inicial
+    yield* worker(valor); // luego llamamos a las emisiones del worker para que emita otros valores
+    yield valor + 4; // emitimos el valor final 10
+}
+
+function* worker (valor: number){
+    yield valor + 1;
+    yield valor + 2;
+    yield valor + 3;
+}
+let generatorSaga = watcher(0);
+
+console.log(generatorSaga.next().value); // 0 (lo ha hecho el watcher)
+console.log(generatorSaga.next().value); // 1 (lo ha hecho el worker)
+console.log(generatorSaga.next().value); // 2 (lo ha hecho el worker)
+console.log(generatorSaga.next().value); // 3 (lo ha hecho el worker)
+console.log(generatorSaga.next().value); // 4 (lo ha hecho el watcher)
+
+
+
+
