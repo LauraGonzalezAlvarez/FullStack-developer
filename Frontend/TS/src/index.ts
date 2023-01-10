@@ -3,6 +3,9 @@
 
 
 
+
+
+
 // Imprimir en consola
 console.log('Hola antonella');
 
@@ -463,5 +466,124 @@ console.log(generatorSaga.next().value); // 3 (lo ha hecho el worker)
 console.log(generatorSaga.next().value); // 4 (lo ha hecho el watcher)
 
 
+// Sobre carga de funciones
+// Esto especificamente se ve especialmente en metodos donde tenemos vaios metodos que se llaman igual pero  reciben parametros distintos hagan operaciones distintas
+// La utilizaremos cuando una misma funcion dependiendo del tipo de parametros que reciba haga una cosa u otra
 
+// function mostrarError(error: string){
+//     console.log("ha habido un error:", error);
+// }
+
+// function mostrarError(error: number){
+//     console.log("ha habido un error:", error);
+// }
+
+// La sobrecarga puede ser util en determinados casos pero habitualmente es mucho mas elegante y mas sencillo la siguiente solucion
+// con un dondicional le especificamos si es de un tipo o del otro hacer algo
+// Para evitar duplicidad de codigo y errores
+
+function mostrarError(error: string | number): void{	
+    console.log("ha habido un error:", error);
+}
+
+// ---------------------------Eventos y persistencia de datos en el navegador---------------------------
+
+// En las aplicaciones requeremos de datos pueden venir de una base de datos, apirestFul, pero tambien hay informacion que queremos almacenar
+// en el navegador para no tener que solicitarlo constantemente, podemos almacenar objetos, listas, instancias,token, como queremos que muestre
+// la informacion al usuario
+
+/**
+ * Persistencia de datos
+ * 1. LocalStorage ---> Almacena los datos en el navegador (no se eliminan automáticamente)
+ * 2. SessionStorage -> La diferencia radica en la sesión de navegador. Es decir, los daos se persisen en la sesión de navegador
+ * 3. Cookies --------> Tienen una fecha de caducidad y tambien tienen un ámbito de URL
+ */
+
+// LocalStorage
+import{setCookie, deleteCookie, deleteAllCookies, getCookieValue } from 'cookies-utils';
+// https://www.npmjs.com/package/cookies-utils    --> direccion de donde se descargó la dependencia
+// Para importar una determinada funcion de un modulo
+
+//LocalStora y SessionStora
+
+// function guardar():void{
+//     //nombre es la clave y la propiedad valor seria la clave
+//     localStorage.set("nombre", "valor");
+
+// }
+// function leer():void{
+//     //nombre es la clave y la propiedad valor seria la clave
+//     let nombre= localStorage.get("nombre", "valor"); // lo podemos guardar en una variable si queremos
+
+// }
+
+
+// cookie
+// Esto lo saque de la pagina  https://www.npmjs.com/package/cookies-utils
+const cookieOptions = {
+    name: "usuario", // string,
+    value: "Martin", // string,
+   
+    expires: new Date(2099, 10, 1), // optional Date,
+    path: "/", // optional string,
+   
+  };
+  // Seteamos la Cookie
+  setCookie(cookieOptions);
+
+  // leer una Cookie
+  let cookieLeida = getCookieValue("usuario");
+  
+  
+  // eliminamos la cookie
+  deleteCookie("usuario");
+  
+  // Eliminar todas las Cookies
+  deleteAllCookies(cookieOptions);
+
+  // Clase Temporizador
+  // Las clases inician en mayus
+  class Temporizador{
+
+    // A la variable terminar le defino una funcion
+    // Esta clase tiene dos propiedades, la cual son funciones
+    public terminar?: (tiempo: number) => void;
+
+    public empezar(): void {
+        // Funcion que recibe un callback, que es este () => {}
+        setTimeout(() => {
+            // El this especifica el ámbito de la clase 
+            // si no tenemos la funcion terminar
+            // Comprobar que exista la función terminar como callback
+           if(!this.terminar) return; // si tengo una sola función la puedo poner en la misma linea
+           
+           // Cuando haya pasado el tiempo, se ejecutará la función terminar
+           this.terminar(Date.now());
+        }, 10000); // 10 segundos
+    }
+
+}
+
+const miTemporizador: Temporizador = new Temporizador();
+
+//Definimos la función dle callback a ejecutar cuando termine el tiempo
+
+miTemporizador.terminar = (tiempo: number) => {
+    console.log("Evento terminado en:", tiempo)
+}
+
+// Lanzamos el temporizador 
+miTemporizador.empezar(); // Se inicia el timeout y cuando termine, se ejecuta la funcion temrinar()
+
+// Propio de node.js
+setInterval(() => console.log("Tic"), 1000) // Imprimir Tic cada segundo por consola
+
+// Eliminar la ejecucción de la función
+delete miTemporizador.terminar;
+
+// El DOM es el HTML que se renderiza 
+
+// document.getElementById("boton-login").addEventListener("click", () => {
+//     console.log("Has hecho click en login");
+// }
 
