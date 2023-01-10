@@ -1,9 +1,7 @@
 
 // Sintaxis, variables y estructuras de control
 
-
-
-
+import { LISTA_CURSOS, LISTA_cursos } from "./mock/cursos.mock";
 
 
 // Imprimir en consola
@@ -587,3 +585,44 @@ delete miTemporizador.terminar;
 //     console.log("Has hecho click en login");
 // }
 
+// -------------Clases y objetos-----------------
+
+import { Curso } from "./models/Curso";
+import { Estudiante } from "./models/Estudiante";
+
+    
+    // Creamos un curso
+
+    // Este codigo está bien, si vamos a crear los cursos en esa misma clase
+    // const cursoTS = new Curso("TypesCript", 15);
+    // const cursoJS = new Curso("JavaScript", 20);
+
+    // const listaCursos: Curso[] = [];
+
+    // Usamos el mock = Son datos inventados 
+    const listaCursos: Curso[] = LISTA_CURSOS;
+
+    // listaCursos.push(cursoTS, cursoJS); //[Lista de cursos]
+
+    // Creamos un estudiante
+    const martin: Estudiante = new Estudiante("Martin", listaCursos, "Gonzalez");
+
+    console.log(`${martin.nombre} estudia:`);
+    // Iteramos por cada uno de ellos
+    martin.cursos.forEach((curso: Curso) => {
+        console.log(`- ${curso.nombre} (${curso.horas}) `); // -Typescript (15 horas)
+    })
+
+    const cursoAngular = new Curso("Angular", 40);
+    martin.cursos.push(cursoAngular); // Añadimos
+
+
+    // Saber la instancia de un objeto/ variable
+    // typeof sirve para saber el tipo de una variable 
+    // instanceof sirve para saber si es la instancia de un tipo en concreto
+    // Tratar de evitar los any
+    // Si nosotros tipamos y documentamos bien no vamos a tener que usar mucho esas dos palabras
+
+    // Conocer las horas de Estudiante
+    martin.horasEstudiadas;
+    
