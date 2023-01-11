@@ -1,7 +1,10 @@
 
 // Sintaxis, variables y estructuras de control
 
-import { LISTA_CURSOS, LISTA_cursos } from "./mock/cursos.mock";
+import { LISTA_CURSOS} from "./mock/cursos.mock";
+import { Trabajador, Jefe } from "./models/Persona";
+import { ITarea, Nivel } from "./models/interfaces/ITarea";
+import { Programar } from "./models/interfaces/Programar";
 
 
 // Imprimir en consola
@@ -493,7 +496,7 @@ function mostrarError(error: string | number): void{
 /**
  * Persistencia de datos
  * 1. LocalStorage ---> Almacena los datos en el navegador (no se eliminan automáticamente)
- * 2. SessionStorage -> La diferencia radica en la sesión de navegador. Es decir, los daos se persisen en la sesión de navegador
+ * 2. SessionStorage -> La diferencia radica en la sesión de navegador. Es decir, los datos se persisen en la sesión de navegador
  * 3. Cookies --------> Tienen una fecha de caducidad y tambien tienen un ámbito de URL
  */
 
@@ -504,16 +507,26 @@ import{setCookie, deleteCookie, deleteAllCookies, getCookieValue } from 'cookies
 
 //LocalStora y SessionStora
 
-// function guardar():void{
-//     //nombre es la clave y la propiedad valor seria la clave
-//     localStorage.set("nombre", "valor");
+function guardar():void{
+    //nombre es la clave y la propiedad valor seria la clave
+    localStorage.set("nombre", "valor");
 
-// }
-// function leer():void{
-//     //nombre es la clave y la propiedad valor seria la clave
-//     let nombre= localStorage.get("nombre", "valor"); // lo podemos guardar en una variable si queremos
+}
+function leer():void{
+    //nombre es la clave y la propiedad valor seria la clave
+    let nombre= localStorage.get("nombre"); // lo podemos guardar en una variable si queremos
+    let nombreSession = sessionStorage.get("nombre");
 
-// }
+    function borrarItem(item: string){
+        localStorage.removeItem(item);
+        sessionStorage.removeItem(item);
+    }
+
+    function borrarTodas(): void{
+        localStorage.clear();
+        sessionStorage.clear();
+    }
+}
 
 
 // cookie
@@ -616,6 +629,7 @@ import { Estudiante } from "./models/Estudiante";
     const cursoAngular = new Curso("Angular", 40);
     martin.cursos.push(cursoAngular); // Añadimos
 
+    martin.horasEstudiadas;
 
     // Saber la instancia de un objeto/ variable
     // typeof sirve para saber el tipo de una variable 
@@ -624,5 +638,115 @@ import { Estudiante } from "./models/Estudiante";
     // Si nosotros tipamos y documentamos bien no vamos a tener que usar mucho esas dos palabras
 
     // Conocer las horas de Estudiante
-    martin.horasEstudiadas;
+
+    let fechaNacimiento = new Date(1991,10,10);
+    if(fechaNacimiento instanceof Date){
+        console.log("Es una instancia de Date");
+    }
+
+    if(martin instanceof Estudiante){
+        console.log("Martín es un Estudiante");
+    }
+
+
+    // --------------Herencia y polimorfismo-----------------
+
+    let trabajador1 = new Trabajador("Martín", "San José", 3, 2000);
+    let trabajador2 = new Trabajador("Pepé", "Garcia", 21, 1000);
+    let trabajador3 = new Trabajador("Juan", "Gonzalez", 40, 3000);
+
     
+    let jefe = new Jefe("Pablo", "garcia", 50, 3000);
+    jefe.trabajadores.push(trabajador1, trabajador2, trabajador3);
+    
+    trabajador1.saludar(); // Especificado en Empleado
+    jefe.saludar(); // Herencia de persona 
+   
+    // Recordar
+    // this a la propia clase
+    // Super al padre
+
+    jefe.trabajadores.forEach((trabajador: Trabajador) => {
+        trabajador.saludar(); // Especificado en Trajador
+        });
+
+
+
+// Uso de interfaces
+
+let programar: ITarea = {
+    titulo: "Programar en TS",
+    descripcion: "Practicar con Katas para aprender a desarrollar con TS",
+    completada: false,
+    urgencia: Nivel.Urgente,
+    resumen: function (): string {
+        return `${this.titulo} - ${this.completada} - Nivel: ${this,urgencia}`;	
+    }
+}
+
+// Tarea de programación (Implementa ITarea)
+let programarTS = new Programar("TypeScript", "Tarea de programación en TS", false, Nivel.Bloqueante);
+console.log(programarTS.resumen());
+
+
+// type: Una manera de definir un tipo propio y personalizado que no llega a la complejidad de una clase, que no requiere de crear instancias, constructores, metodos, simplemento son un almacen de datos un poco mas complejo que un string o un objeto normal poniendole una pequeña firma 
+// Clase: Seria la manera un poco de implementar esas interfaces ocuando intentamos crear objetos un poco mas complejos que los objetos naturales que podemos tener propio de TS
+// Interface: Se utilizaría para definir conceptos de valores, atributos, propiedades que queremos darle ademas de definir que deben de tener algunos métodos implementados si o si de forma obligatorio
+
+
+// --------------Decoradores-----------------
+// Son funciones declaradas a través de un simbolo @ y este nos permite trabajar o dar mas informacion, mas metadatos a nuestro codigo 
+
+// Decoradores experimentales ---> @
+/**
+* - Clases
+- Parámetros
+-Métodos
+-Propiedades
+*/
+
+function Override(label: string){
+    return function (target: any, key: string){
+        Object.defineProperty(target, key, {
+            configurable: false,
+            get: () => label
+            
+        })
+    }
+}
+
+class PruebaDecorador {
+    @Override('prueba') // LLamar a la función Override
+    nombre: string = "Martin"
+}
+
+let prueba  = new PruebaDecorador();
+console.log(prueba.nombre); // Prueba, siempre va a ser devuelto a través del get()
+
+// Otra función para usarla como decorador
+function SoloLectura(target: any, key: string){
+    Object.defineProperty(target, key,{
+        writable: false
+    })
+}
+
+class PruebaSoloLectura{
+    @SoloLectura
+    nombre: string = "";
+    
+}
+
+// Decorador para parametros de un método
+
+function mostarPosicion(target: any, propertykey: string, parameterIndex: number){
+    console.log("posicon: ",parameterIndex);
+}
+
+class PruebaMetodoDecorador{
+    prueba(a:string,@mostarPosicion b:boolean){
+        console.log(b);
+    }
+}
+
+new PruebaMetodoDecorador().prueba('Hola', false);
+
