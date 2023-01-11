@@ -750,3 +750,21 @@ class PruebaMetodoDecorador{
 
 new PruebaMetodoDecorador().prueba('Hola', false);
 
+//------------------------------------------------------PATRONES DE DISEÑO--------------------------------
+
+// * PATRONES CREACIONALES
+
+
+    const miPrimerSingleton = Singleton.getInstance();
+    const miSegundoSingleton = Singleton.getInstance();
+
+    // Compueba si ambos son iguales
+    if (miPrimerSingleton === miSegundoSingleton) {
+        console.log('Singleton funciona correctamente, ambas variables contienen la misma instancia.');
+        miPrimerSingleton.mostrarPorConsola();
+        miSegundoSingleton.mostrarPorConsola();
+    } else {
+        console.log('Error.');
+    }
+}
+
