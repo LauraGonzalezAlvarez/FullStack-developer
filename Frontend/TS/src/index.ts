@@ -5,6 +5,10 @@ import { LISTA_CURSOS} from "./mock/cursos.mock";
 import { Trabajador, Jefe } from "./models/Persona";
 import { ITarea, Nivel } from "./models/interfaces/ITarea";
 import { Programar } from "./models/interfaces/Programar";
+import { Curso } from "./models/Curso";
+import { Estudiante } from "./models/Estudiante";
+import{setCookie, deleteCookie, deleteAllCookies, getCookieValue } from 'cookies-utils';
+
 
 
 // Imprimir en consola
@@ -501,7 +505,8 @@ function mostrarError(error: string | number): void{
  */
 
 // LocalStorage
-import{setCookie, deleteCookie, deleteAllCookies, getCookieValue } from 'cookies-utils';
+
+// import{setCookie, deleteCookie, deleteAllCookies, getCookieValue } from 'cookies-utils';
 // https://www.npmjs.com/package/cookies-utils    --> direccion de donde se descargó la dependencia
 // Para importar una determinada funcion de un modulo
 
@@ -531,49 +536,49 @@ function leer():void{
 
 // cookie
 // Esto lo saque de la pagina  https://www.npmjs.com/package/cookies-utils
-const cookieOptions = {
-    name: "usuario", // string,
-    value: "Martin", // string,
-   
-    expires: new Date(2099, 10, 1), // optional Date,
-    path: "/", // optional string,
-   
-  };
-  // Seteamos la Cookie
-  setCookie(cookieOptions);
+    // const cookieOptions = {
+    //     name: "usuario", // string,
+    //     value: "Martin", // string,
 
-  // leer una Cookie
-  let cookieLeida = getCookieValue("usuario");
-  
-  
-  // eliminamos la cookie
-  deleteCookie("usuario");
-  
-  // Eliminar todas las Cookies
-  deleteAllCookies(cookieOptions);
+    //     expires: new Date(2099, 10, 1), // optional Date,
+    //     path: "/", // optional string,
 
-  // Clase Temporizador
-  // Las clases inician en mayus
-  class Temporizador{
+    // };
+    // // Seteamos la Cookie
+    // setCookie(cookieOptions);
 
-    // A la variable terminar le defino una funcion
-    // Esta clase tiene dos propiedades, la cual son funciones
-    public terminar?: (tiempo: number) => void;
+    // // leer una Cookie
+    // let cookieLeida = getCookieValue("usuario");
 
-    public empezar(): void {
-        // Funcion que recibe un callback, que es este () => {}
-        setTimeout(() => {
-            // El this especifica el ámbito de la clase 
-            // si no tenemos la funcion terminar
-            // Comprobar que exista la función terminar como callback
-           if(!this.terminar) return; // si tengo una sola función la puedo poner en la misma linea
-           
-           // Cuando haya pasado el tiempo, se ejecutará la función terminar
-           this.terminar(Date.now());
-        }, 10000); // 10 segundos
+
+    // // eliminamos la cookie
+    // deleteCookie("usuario");
+
+    // Eliminar todas las Cookies
+    // deleteAllCookies(cookieOptions);
+
+    // Clase Temporizador
+    // Las clases inician en mayus
+    class Temporizador {
+
+        // A la variable terminar le defino una funcion
+        // Esta clase tiene dos propiedades, la cual son funciones
+        public terminar?: (tiempo: number) => void;
+
+        public empezar(): void {
+            // Funcion que recibe un callback, que es este () => {}
+            setTimeout(() => {
+                // El this especifica el ámbito de la clase 
+                // si no tenemos la funcion terminar
+                // Comprobar que exista la función terminar como callback
+                if (!this.terminar) return; // si tengo una sola función la puedo poner en la misma linea
+
+                // Cuando haya pasado el tiempo, se ejecutará la función terminar
+                this.terminar(Date.now());
+            }, 10000); // 10 segundos
+        }
+
     }
-
-}
 
 const miTemporizador: Temporizador = new Temporizador();
 
@@ -600,8 +605,9 @@ delete miTemporizador.terminar;
 
 // -------------Clases y objetos-----------------
 
-import { Curso } from "./models/Curso";
-import { Estudiante } from "./models/Estudiante";
+
+// import { Curso } from "./models/Curso";
+// import { Estudiante } from "./models/Estudiante";
 
     
     // Creamos un curso
@@ -715,56 +721,58 @@ function Override(label: string){
     }
 }
 
-class PruebaDecorador {
-    @Override('prueba') // LLamar a la función Override
-    nombre: string = "Martin"
-}
+// class PruebaDecorador {
+//     @Override('prueba') // LLamar a la función Override
+//     nombre: string = "Martin"
+// }
 
-let prueba  = new PruebaDecorador();
-console.log(prueba.nombre); // Prueba, siempre va a ser devuelto a través del get()
+// let prueba  = new PruebaDecorador();
+// console.log(prueba.nombre); // Prueba, siempre va a ser devuelto a través del get()
 
 // Otra función para usarla como decorador
-function SoloLectura(target: any, key: string){
-    Object.defineProperty(target, key,{
-        writable: false
-    })
-}
+// function SoloLectura(target: any, key: string){
+//     Object.defineProperty(target, key,{
+//         writable: false
+//     })
+// }
 
-class PruebaSoloLectura{
-    @SoloLectura
-    nombre: string = "";
+// class PruebaSoloLectura{
+//     @SoloLectura
+//     nombre: string = "";
     
-}
+// }
 
-// Decorador para parametros de un método
+// // Decorador para parametros de un método
 
-function mostarPosicion(target: any, propertykey: string, parameterIndex: number){
-    console.log("posicon: ",parameterIndex);
-}
+// function mostrarPosicion(target: any, propertykey: string, parameterIndex: number){
+//     console.log("posicon: ",parameterIndex);
+// }
 
-class PruebaMetodoDecorador{
-    prueba(a:string,@mostarPosicion b:boolean){
-        console.log(b);
-    }
-}
+// class PruebaMetodoDecorador{
+//     prueba(a:string,@mostarPosicion b:boolean){
+//         console.log(b);
+//     }
+// }
 
-new PruebaMetodoDecorador().prueba('Hola', false);
+// new PruebaMetodoDecorador().prueba('Hola', false);
 
 //------------------------------------------------------PATRONES DE DISEÑO--------------------------------
 
 // * PATRONES CREACIONALES
 
 
-    const miPrimerSingleton = Singleton.getInstance();
-    const miSegundoSingleton = Singleton.getInstance();
+//     const miPrimerSingleton = Singleton.getInstance();
+//     const miSegundoSingleton = Singleton.getInstance();
 
-    // Compueba si ambos son iguales
-    if (miPrimerSingleton === miSegundoSingleton) {
-        console.log('Singleton funciona correctamente, ambas variables contienen la misma instancia.');
-        miPrimerSingleton.mostrarPorConsola();
-        miSegundoSingleton.mostrarPorConsola();
-    } else {
-        console.log('Error.');
-    }
+//     // Compueba si ambos son iguales
+//     if (miPrimerSingleton === miSegundoSingleton) {
+//         console.log('Singleton funciona correctamente, ambas variables contienen la misma instancia.');
+//         miPrimerSingleton.mostrarPorConsola();
+//         miSegundoSingleton.mostrarPorConsola();
+//     } else {
+//         console.log('Error.');
+//     }
+// }
+
 }
-
+}
