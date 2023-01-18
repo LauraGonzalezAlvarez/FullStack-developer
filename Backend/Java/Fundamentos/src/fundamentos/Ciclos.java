@@ -39,5 +39,12 @@ public class Ciclos {
                   
          }
          
+         // Bucle for Each
+         String[] nombres = {"Laura", " Daniela"};
+         // Se le pone el iterador del mismo tipo de dato del arreglo
+         for(String k:nombres){
+             System.out.println(k);
+         }
+         
      }
 }
