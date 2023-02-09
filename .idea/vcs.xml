@@ -2,10 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Angular-adv-adminpro" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Frontend/Angular" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Frontend/Angular/Angular-adv" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Frontend/Angular/Angular-adv/02-tarea-01" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Frontend/Angular/Angular-adv/02-tarea-01/angular-adv-tarea-01" vcs="Git" />
   </component>
 </project>

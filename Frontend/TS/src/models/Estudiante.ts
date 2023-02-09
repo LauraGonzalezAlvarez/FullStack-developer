@@ -19,6 +19,7 @@ export class Estudiante {
         // this es la referencia a la propia clasee a la instancia de la clase 
         this.nombre = nombre;
 
+
         // Como apellido es opcional hay dos maneras de trabajar:
         // 1. Con el operador ternario
         this.apellidos = apellidos ? apellidos : undefined;

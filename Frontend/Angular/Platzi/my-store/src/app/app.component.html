@@ -28,7 +28,7 @@
 <!-------------------------------------------------------------------------------------------------------->
 <!-- Con el binding de [class] y [style] puedes agregar clases y estilos fácilmente. Pero se vuelve algo complicado en el caso de que necesites agregar varias clases o modificar muchos estilos Angular ofrece las directivas ngClass y ngStyle-->
 <h1>NgClass & NgStyle</h1> <!-- -->
-<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" /> 
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
 <!-- [ngClass]= podemos enviar un objeto, le decimos aplica esta clase 'valid' solo si el nameInput4. es valido -->
 <!-- Tambien, aplica esta clase 'invalid' si el nameInput4 es invalido -->
 <!-- El ngClass está escuchando el estado del input si es valido o no -->
@@ -71,7 +71,7 @@
 
 
 <label>Nombre</label><!-- Ejemplo para modificar el estilo directamente -->
-<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+  <input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
 <p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Texto texto texto</p><!-- [style.font-style] = se está modificando el estilo de la fuente  -->
 <!-- nameInput3.invalid ? 'italic' : 'normal' = validando el input preguntando si es invalid muestro italic sino muestra con letra normal -->
 
@@ -173,7 +173,7 @@
 </div>
 <p>Nombre {{ person.name }}</p>
 <!--String interpolation = estamos renderizando el objeto person.name -->
-<input type="text" [value]="person.name" (keyup)="change
+<input type="text" [value]="person.name" (keyup)="changeName" />
 Name($event)" /><!-- Tenemos property binding []  -->
 <!--Tenemos property binding [] y event binding ()= Event Binding permite controlar los eventos que suceden en estos elementos del html, el clic de un boton, el detectar cambios de un formulario, etc. () sirve para el bindeo de la propiedad del elemento  -->
 <!-- La traducción de binding sería enlace, y sirve justamente para eso realizar un nexo, unión entre unas cosas y otras  -->
